@@ -14,6 +14,7 @@ import SettingsModule from './modules/settings.js';
 import ToolkitModule from './modules/toolkit.js';
 import EDMModule from './modules/edm.js';
 import NCQuickModule from './modules/nc-quick.js';
+import NCHomeModule from './modules/nc-home.js';
 
 // 主应用
 const App = {
@@ -36,6 +37,7 @@ const App = {
     this.registerModule(ToolkitModule);
     this.registerModule(EDMModule);
     this.registerModule(NCQuickModule);
+    this.registerModule(NCHomeModule);
     
     this.bindEvents();
     this.initHotkeys();
@@ -84,7 +86,7 @@ const App = {
   
   updateTabState(activeModule) {
     // 数控子模块列表，这些模块切换时高亮"数控"tab
-    const ncSubModules = ['tool-db', 'mach-template', 'smart-rec', 'prog-sheet', 'ai-advisor', 'work-coord', 'edm', 'nc-quick'];
+    const ncSubModules = ['nc-home', 'tool-db', 'mach-template', 'smart-rec', 'prog-sheet', 'ai-advisor', 'work-coord', 'edm', 'nc-quick'];
     const tabToHighlight = ncSubModules.includes(activeModule) ? 'nc-control' : activeModule;
     
     document.querySelectorAll('.tab-btn').forEach(btn => {
@@ -176,10 +178,15 @@ const App = {
   
   updateTitle(module) {
     const titleEl = document.getElementById('module-title');
-    const ncSubModules = ['tool-db', 'mach-template', 'smart-rec', 'prog-sheet', 'ai-advisor', 'work-coord', 'edm', 'nc-quick'];
+    const ncSubModules = ['nc-home', 'tool-db', 'mach-template', 'smart-rec', 'prog-sheet', 'ai-advisor', 'work-coord', 'edm', 'nc-quick'];
     
     if (ncSubModules.includes(module.name)) {
-      titleEl.innerHTML = `<button class="btn-back-nc" onclick="App.showNCPanel()" title="返回数控面板">◀</button> ${module.title || module.name}`;
+      // 如果不是数控首页，显示返回按钮
+      if (module.name !== 'nc-home') {
+        titleEl.innerHTML = `<button class="btn-back-nc" onclick="App.switchModule('nc-home')" title="返回数控首页">◀</button> ${module.title || module.name}`;
+      } else {
+        titleEl.textContent = module.title || module.name;
+      }
     } else {
       titleEl.textContent = module.title || module.name;
     }
@@ -195,29 +202,10 @@ const App = {
       btn.addEventListener('click', () => {
         const tabName = btn.dataset.tab;
         if (tabName === 'nc-control') {
-          // 数控模块特殊处理：弹出面板
-          this.showNCPanel();
+          // 数控模块：切换到数控首页（命令网格）
+          this.switchModule('nc-home');
         } else {
           this.switchModule(tabName);
-        }
-      });
-    });
-    
-    // 数控模块面板事件
-    document.getElementById('nc-panel-close')?.addEventListener('click', () => this.hideNCPanel());
-    document.getElementById('nc-panel-overlay')?.addEventListener('click', (e) => {
-      if (e.target === document.getElementById('nc-panel-overlay')) {
-        this.hideNCPanel();
-      }
-    });
-    
-    // 数控模块按钮点击 - 直接切换模块并关闭面板
-    document.querySelectorAll('.nc-module-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const moduleId = btn.dataset.module;
-        if (moduleId) {
-          this.hideNCPanel();
-          this.switchModule(moduleId);
         }
       });
     });
@@ -246,43 +234,12 @@ const App = {
     });
   },
   
-  // 显示数控模块面板
-  showNCPanel() {
-    const overlay = document.getElementById('nc-panel-overlay');
-    if (overlay) {
-      overlay.classList.add('active');
-    }
-  },
-  
-  // 隐藏数控模块面板
-  hideNCPanel() {
-    const overlay = document.getElementById('nc-panel-overlay');
-    if (overlay) {
-      overlay.classList.remove('active');
-    }
-  },
-  
-  // 获取模块描述
-  getModuleDesc(moduleId) {
-    const descs = {
-      'tool-db': '<div class="nc-desc-content"><div class="nc-desc-name">刀具库</div><p>刀具参数库管理，包含刀具参数设置、切削参数配置等。支持刀具信息的新增、编辑、删除和分类管理。</p></div>',
-      'mach-template': '<div class="nc-desc-content"><div class="nc-desc-name">模板</div><p>加工模板管理，包含模板创建、编辑、分类管理。支持快速调用标准加工模板提高编程效率。</p></div>',
-      'smart-rec': '<div class="nc-desc-content"><div class="nc-desc-name">推荐</div><p>智能推荐功能，根据加工需求推荐最优刀具和切削参数，降低调试成本。</p></div>',
-      'prog-sheet': '<div class="nc-desc-content"><div class="nc-desc-name">程序单</div><p>程序单生成与编辑，输出加工参数清单，方便车间操作人员使用。</p></div>',
-      'ai-advisor': '<div class="nc-desc-content"><div class="nc-desc-name">AI顾问</div><p>AI编程顾问，提供智能加工建议和编程指导，解答加工问题。</p></div>',
-      'work-coord': '<div class="nc-desc-content"><div class="nc-desc-name">坐标</div><p>坐标系设定与管理，G54-G59工件坐标系配置，坐标系原点设置。</p></div>',
-      'edm': '<div class="nc-desc-content"><div class="nc-desc-name">拆电极</div><p>拆电极工具，EDM放电加工电极设计，支持电极图生成和放电参数配置。</p></div>',
-      'nc-quick': '<div class="nc-desc-content"><div class="nc-desc-name">工艺</div><p>加工工艺参数配置，切削用量设定，转速、进给、切削深度等参数管理。</p></div>'
-    };
-    return descs[moduleId] || '<p class="nc-desc-hint">选择模块后可查看功能说明</p>';
-  },
-  
   initHotkeys() {
     document.addEventListener('keydown', (e) => {
-      // Ctrl+` 显示数控模块面板
+      // Ctrl+` 显示数控首页
       if (e.ctrlKey && e.key === '`') {
         e.preventDefault();
-        this.showNCPanel();
+        this.switchModule('nc-home');
         return;
       }
       
@@ -319,7 +276,10 @@ const App = {
       if (e.key === 'Escape') {
         this.toggleSearch(false);
         this.toggleHelp(false);
-        this.hideNCPanel();
+        // 关闭所有模态框
+        document.querySelectorAll('.modal-overlay.active').forEach(modal => {
+          modal.classList.remove('active');
+        });
         return;
       }
       

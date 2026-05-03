@@ -1,0 +1,606 @@
+/**
+ * 数控首页 - 星空外挂风格命令网格样式
+ * Windows桌面软件风格，密集功能按钮布局
+ */
+
+/* ============================================
+   数控首页容器
+   ============================================ */
+.nc-home-container {
+  padding: 0;
+  height: 100%;
+  overflow-y: auto;
+  background: var(--win-bg);
+}
+
+.nc-home-header {
+  padding: 12px 16px 8px;
+  background: linear-gradient(180deg, var(--win-header) 0%, var(--win-bg) 100%);
+  border-bottom: 1px solid var(--win-border);
+  margin-bottom: 8px;
+}
+
+.nc-home-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--font-lg);
+  font-weight: 600;
+  color: var(--win-text);
+}
+
+.nc-home-icon {
+  width: 20px;
+  height: 20px;
+  color: var(--win-active);
+}
+
+.nc-home-subtitle {
+  font-size: var(--font-xs);
+  color: var(--win-text-muted);
+  margin-top: 2px;
+  padding-left: 28px;
+}
+
+.nc-home-grid {
+  padding: 8px 12px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* ============================================
+   分类卡片 - GroupBox风格
+   ============================================ */
+.nc-category {
+  background: var(--win-panel);
+  border: 1px solid var(--win-border);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+/* 分类标题栏 */
+.nc-category-header {
+  display: flex;
+  align-items: center;
+  padding: 4px 8px;
+  cursor: pointer;
+  user-select: none;
+  border-bottom: 1px solid rgba(0,0,0,0.3);
+}
+
+.nc-category-header:hover {
+  filter: brightness(1.1);
+}
+
+.nc-category-header::before {
+  content: '▼';
+  font-size: 8px;
+  color: rgba(255,255,255,0.7);
+  margin-right: 6px;
+  transition: transform 0.2s;
+}
+
+.nc-category.collapsed .nc-category-header::before {
+  transform: rotate(-90deg);
+}
+
+.nc-category-title {
+  font-size: var(--font-sm);
+  font-weight: 600;
+  color: white;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+
+.nc-category-body {
+  padding: 6px;
+}
+
+/* 折叠状态 */
+.nc-category.collapsed .nc-category-body {
+  display: none;
+}
+
+/* ============================================
+   命令网格 - 4列紧密布局
+   ============================================ */
+.nc-cmd-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 5px;
+}
+
+/* ============================================
+   命令按钮 - Windows 3D风格
+   ============================================ */
+.nc-cmd-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  padding: 8px 4px 6px;
+  min-width: 70px;
+  min-height: 58px;
+  background: #e8e8e8;
+  border: none;
+  border-top: 1px solid #ffffff;
+  border-left: 1px solid #ffffff;
+  border-right: 1px solid #808080;
+  border-bottom: 1px solid #808080;
+  border-radius: 2px;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  transition: all 0.1s;
+}
+
+.nc-cmd-btn:hover {
+  background: #d0e8ff;
+  border-top-color: #a0d0ff;
+  border-left-color: #a0d0ff;
+}
+
+.nc-cmd-btn:active {
+  background: #c0d8f0;
+  border-top: 1px solid #808080;
+  border-left: 1px solid #808080;
+  border-right: 1px solid #ffffff;
+  border-bottom: 1px solid #ffffff;
+}
+
+.nc-cmd-icon {
+  font-size: 18px;
+  line-height: 1;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nc-cmd-name {
+  font-size: 11px;
+  font-weight: 500;
+  color: #333333;
+  white-space: nowrap;
+  text-align: center;
+  line-height: 1.2;
+}
+
+.nc-cmd-shortcut {
+  font-size: 9px;
+  color: #888888;
+  font-family: var(--font-mono);
+  white-space: nowrap;
+}
+
+/* 按钮hover效果 */
+.nc-cmd-btn:hover .nc-cmd-name {
+  color: #0066cc;
+}
+
+/* 选中状态 */
+.nc-cmd-btn.selected {
+  background: #ffd0a0;
+  border-top-color: #ffc080;
+  border-left-color: #ffc080;
+}
+
+/* ============================================
+   快捷键提示栏（底部）
+   ============================================ */
+.nc-shortcut-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 10px;
+  background: var(--win-header);
+  border-top: 1px solid var(--win-border);
+  font-size: var(--font-xs);
+  color: var(--win-text-muted);
+}
+
+.nc-shortcut-bar kbd {
+  display: inline-block;
+  padding: 2px 5px;
+  background: var(--win-btn-face);
+  border: 1px solid var(--win-border);
+  border-radius: 2px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--win-text-secondary);
+  margin: 0 2px;
+}
+
+/* ============================================
+   分类颜色变体
+   ============================================ */
+/* 粉色 - 刀具管理 */
+.nc-category[data-color="pink"] .nc-category-header,
+.nc-category[data-color="pink"] .nc-category-header {
+  background: linear-gradient(90deg, #e91e63 0%, #e91e6388 100%) !important;
+}
+
+/* 蓝色 - 编程操作 */
+.nc-category[data-color="blue"] .nc-category-header {
+  background: linear-gradient(90deg, #2196f3 0%, #2196f388 100%) !important;
+}
+
+/* 橙色 - 电极专区 */
+.nc-category[data-color="orange"] .nc-category-header {
+  background: linear-gradient(90deg, #ff9800 0%, #ff980088 100%) !important;
+}
+
+/* 绿色 - 辅助工具 */
+.nc-category[data-color="green"] .nc-category-header {
+  background: linear-gradient(90deg, #4caf50 0%, #4caf5088 100%) !important;
+}
+
+/* 紫色 - 其他 */
+.nc-category[data-color="purple"] .nc-category-header {
+  background: linear-gradient(90deg, #9c27b0 0%, #9c27b088 100%) !important;
+}
+
+/* ============================================
+   响应式调整
+   ============================================ */
+@media (max-width: 900px) {
+  .nc-cmd-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .nc-cmd-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .nc-home-grid {
+    padding: 6px 8px 12px;
+  }
+}
+
+@media (max-width: 500px) {
+  .nc-cmd-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .nc-cmd-btn {
+    min-width: 60px;
+    min-height: 52px;
+    padding: 6px 3px 5px;
+  }
+  
+  .nc-cmd-icon {
+    font-size: 16px;
+  }
+  
+  .nc-cmd-name {
+    font-size: 10px;
+  }
+}
+
+/* ============================================
+   模态对话框样式
+   ============================================ */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s, visibility 0.2s;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-dialog {
+  background: var(--win-content);
+  border: 1px solid var(--win-border);
+  border-radius: 2px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+  min-width: 360px;
+  max-width: 90vw;
+  display: flex;
+  flex-direction: column;
+  transform: scale(0.95);
+  transition: transform 0.2s;
+}
+
+.modal-overlay.active .modal-dialog {
+  transform: scale(1);
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  background: var(--win-header);
+  border-bottom: 1px solid var(--win-border);
+  flex-shrink: 0;
+}
+
+.modal-header h3 {
+  font-size: var(--font-lg);
+  font-weight: 600;
+  color: var(--win-text);
+  margin: 0;
+}
+
+.modal-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  background: transparent;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  font-size: 18px;
+  color: var(--win-text-secondary);
+  padding: 0;
+  transition: all 0.15s;
+}
+
+.modal-close:hover {
+  background: rgba(255,100,100,0.2);
+  color: #ff6b6b;
+}
+
+.modal-body {
+  padding: 14px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.modal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 10px 14px;
+  background: var(--win-bg);
+  border-top: 1px solid var(--win-border);
+  flex-shrink: 0;
+}
+
+.modal-footer .btn {
+  margin-left: 0;
+}
+
+.form-row {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.form-row .form-group {
+  flex: 1;
+  margin-bottom: 0;
+}
+
+.form-group {
+  margin-bottom: 10px;
+}
+
+.form-group label {
+  display: block;
+  font-size: var(--font-xs);
+  font-weight: 500;
+  color: var(--win-text-secondary);
+  margin-bottom: 4px;
+}
+
+.form-input, .form-select {
+  width: 100%;
+  padding: 6px 8px;
+  background: var(--win-input-bg);
+  border: 1px solid var(--win-border);
+  border-radius: 2px;
+  color: var(--win-text);
+  font-size: var(--font-sm);
+  font-family: var(--font-sans);
+}
+
+.form-input:focus, .form-select:focus {
+  outline: none;
+  border-color: var(--win-active);
+}
+
+.form-groupbox {
+  background: var(--win-bg);
+  border: 1px solid var(--win-border);
+  border-radius: 2px;
+  padding: 8px;
+  position: relative;
+}
+
+.form-groupbox-title {
+  position: absolute;
+  top: -8px;
+  left: 8px;
+  background: var(--win-content);
+  padding: 0 6px;
+  font-size: var(--font-xs);
+  font-weight: 500;
+  color: var(--win-text-secondary);
+}
+
+.result-grid {
+  padding: 8px;
+}
+
+.result-item {
+  text-align: center;
+  padding: 8px;
+  background: var(--win-input-bg);
+  border-radius: 2px;
+}
+
+.result-label {
+  display: block;
+  font-size: var(--font-xs);
+  color: var(--win-text-muted);
+  margin-bottom: 4px;
+}
+
+.result-value {
+  display: block;
+  font-size: var(--font-lg);
+  font-weight: 600;
+  color: var(--win-active);
+}
+
+.tag {
+  display: inline-block;
+  padding: 2px 6px;
+  border-radius: 2px;
+  font-size: 10px;
+  font-weight: 500;
+}
+
+.tag-success { background: rgba(76, 175, 80, 0.2); color: #4caf50; }
+.tag-warning { background: rgba(255, 152, 0, 0.2); color: #ff9800; }
+.tag-info { background: rgba(77, 166, 255, 0.2); color: #4da6ff; }
+.tag-danger { background: rgba(244, 67, 54, 0.2); color: #f44336; }
+
+.data-table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: var(--font-xs);
+}
+
+.data-table th, .data-table td {
+  padding: 6px 8px;
+  text-align: left;
+  border: 1px solid var(--win-border);
+}
+
+.data-table th {
+  background: var(--win-header);
+  font-weight: 600;
+  color: var(--win-text);
+}
+
+.data-table tbody tr:hover {
+  background: var(--win-row-hover);
+  cursor: pointer;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 6px 12px;
+  background: var(--win-btn-face);
+  border: 1px solid var(--win-border);
+  border-radius: 2px;
+  color: var(--win-text);
+  font-size: var(--font-sm);
+  font-family: var(--font-sans);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.btn:hover {
+  background: var(--win-btn-highlight);
+}
+
+.btn-primary {
+  background: var(--win-active);
+  border-color: var(--win-active);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: #3a8fd9;
+}
+
+.btn-link {
+  background: transparent;
+  border-color: transparent;
+  color: var(--win-text-secondary);
+  text-align: left;
+}
+
+.btn-link:hover {
+  background: var(--win-selection);
+  color: var(--win-text);
+}
+
+.btn-xs {
+  padding: 2px 6px;
+  font-size: 10px;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.wizard-steps {
+  display: flex;
+  gap: 4px;
+}
+
+.wizard-step {
+  flex: 1;
+  text-align: center;
+  padding: 8px;
+  background: var(--win-bg);
+  border: 1px solid var(--win-border);
+  border-radius: 2px;
+  opacity: 0.5;
+}
+
+.wizard-step.active {
+  opacity: 1;
+  border-color: var(--win-active);
+  background: var(--win-selection);
+}
+
+.wizard-step span {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+  background: var(--win-border);
+  border-radius: 50%;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.wizard-step.active span {
+  background: var(--win-active);
+  color: white;
+}
+
+.wizard-step small {
+  color: var(--win-text-muted);
+  font-size: 10px;
+}
+
+.annotate-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  width: 100%;
+  text-align: left;
+}
+
+.annotate-btn.active {
+  background: var(--win-selection);
+  border-color: var(--win-active);
+}
