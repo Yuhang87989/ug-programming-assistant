@@ -1,0 +1,858 @@
+{
+  "version": "2.0",
+  "lastUpdated": "2026-05-03",
+  "categories": {
+    "milling": { "name": "铣削刀具", "icon": "milling" },
+    "drilling": { "name": "孔加工刀具", "icon": "drilling" },
+    "turning": { "name": "车削刀具", "icon": "turning" },
+    "custom": { "name": "自定义刀具", "icon": "custom" }
+  },
+  "tools": [
+    {
+      "id": "T001",
+      "category": "milling",
+      "subCategory": "面铣刀",
+      "name": "D50R3飞刀",
+      "params": {
+        "diameter": 50,
+        "cornerRadius": 3,
+        "flutes": 4,
+        "fluteLength": 50,
+        "overallLength": 110,
+        "shankDiameter": 20,
+        "coating": "TiAlN",
+        "material": "硬质合金"
+      },
+      "cuttingParams": {
+        "45钢": { "vc": 120, "fz": 0.12, "ap": 0.5, "ae": 0.65, "s": 764, "f": 3660 },
+        "铝合金": { "vc": 300, "fz": 0.2, "ap": 1.2, "ae": 0.8, "s": 1910, "f": 15280 },
+        "不锈钢": { "vc": 80, "fz": 0.1, "ap": 0.4, "ae": 0.5, "s": 510, "f": 2040 },
+        "铸铁": { "vc": 100, "fz": 0.15, "ap": 0.6, "ae": 0.65, "s": 637, "f": 3820 },
+        "铜": { "vc": 150, "fz": 0.15, "ap": 0.8, "ae": 0.7, "s": 955, "f": 5730 },
+        "钛合金": { "vc": 50, "fz": 0.08, "ap": 0.3, "ae": 0.4, "s": 318, "f": 1020 }
+      }
+    },
+    {
+      "id": "T002",
+      "category": "milling",
+      "subCategory": "面铣刀",
+      "name": "D40R2飞刀",
+      "params": {
+        "diameter": 40,
+        "cornerRadius": 2,
+        "flutes": 4,
+        "fluteLength": 40,
+        "overallLength": 100,
+        "shankDiameter": 16,
+        "coating": "TiAlN",
+        "material": "硬质合金"
+      },
+      "cuttingParams": {
+        "45钢": { "vc": 120, "fz": 0.12, "ap": 0.5, "ae": 0.65, "s": 955, "f": 4580 },
+        "铝合金": { "vc": 300, "fz": 0.2, "ap": 1.2, "ae": 0.8, "s": 2390, "f": 19120 },
+        "不锈钢": { "vc": 80, "fz": 0.1, "ap": 0.4, "ae": 0.5, "s": 637, "f": 2550 },
+        "铸铁": { "vc": 100, "fz": 0.15, "ap": 0.6, "ae": 0.65, "s": 796, "f": 4780 },
+        "铜": { "vc": 150, "fz": 0.15, "ap": 0.8, "ae": 0.7, "s": 1190, "f": 7140 },
+        "钛合金": { "vc": 50, "fz": 0.08, "ap": 0.3, "ae": 0.4, "s": 398, "f": 1270 }
+      }
+    },
+    {
+      "id": "T003",
+      "category": "milling",
+      "subCategory": "面铣刀",
+      "name": "D30R1.5飞刀",
+      "params": {
+        "diameter": 30,
+        "cornerRadius": 1.5,
+        "flutes": 4,
+        "fluteLength": 35,
+        "overallLength": 90,
+        "shankDiameter": 12,
+        "coating": "TiAlN",
+        "material": "硬质合金"
+      },
+      "cuttingParams": {
+        "45钢": { "vc": 130, "fz": 0.1, "ap": 0.4, "ae": 0.6, "s": 1380, "f": 5520 },
+        "铝合金": { "vc": 320, "fz": 0.18, "ap": 1.0, "ae": 0.75, "s": 3400, "f": 24480 },
+        "不锈钢": { "vc": 85, "fz": 0.09, "ap": 0.35, "ae": 0.45, "s": 900, "f": 3240 },
+        "铸铁": { "vc": 110, "fz": 0.12, "ap": 0.5, "ae": 0.6, "s": 1170, "f": 5620 },
+        "铜": { "vc": 160, "fz": 0.14, "ap": 0.7, "ae": 0.65, "s": 1700, "f": 9520 },
+        "钛合金": { "vc": 55, "fz": 0.07, "ap": 0.25, "ae": 0.35, "s": 583, "f": 1630 }
+      }
+    },
+    {
+      "id": "T004",
+      "category": "milling",
+      "subCategory": "立铣刀",
+      "name": "D20平刀",
+      "params": {
+        "diameter": 20,
+        "cornerRadius": 0,
+        "flutes": 4,
+        "fluteLength": 40,
+        "overallLength": 100,
+        "shankDiameter": 20,
+        "coating": "TiAlN",
+        "material": "硬质合金"
+      },
+      "cuttingParams": {
+        "45钢": { "vc": 120, "fz": 0.08, "ap": 0.5, "ae": 8, "s": 1910, "f": 6110 },
+        "铝合金": { "vc": 300, "fz": 0.15, "ap": 1.0, "ae": 10, "s": 4770, "f": 28620 },
+        "不锈钢": { "vc": 80, "fz": 0.07, "ap": 0.4, "ae": 6, "s": 1270, "f": 3560 },
+        "铸铁": { "vc": 100, "fz": 0.1, "ap": 0.6, "ae": 8, "s": 1590, "f": 6360 },
+        "铜": { "vc": 150, "fz": 0.12, "ap": 0.8, "ae": 10, "s": 2390, "f": 11470 },
+        "钛合金": { "vc": 50, "fz": 0.05, "ap": 0.3, "ae": 4, "s": 796, "f": 1590 }
+      }
+    },
+    {
+      "id": "T005",
+      "category": "milling",
+      "subCategory": "立铣刀",
+      "name": "D16平刀",
+      "params": {
+        "diameter": 16,
+        "cornerRadius": 0,
+        "flutes": 4,
+        "fluteLength": 32,
+        "overallLength": 85,
+        "shankDiameter": 16,
+        "coating": "TiAlN",
+        "material": "硬质合金"
+      },
+      "cuttingParams": {
+        "45钢": { "vc": 130, "fz": 0.07, "ap": 0.4, "ae": 6, "s": 2590, "f": 7250 },
+        "铝合金": { "vc": 320, "fz": 0.14, "ap": 0.8, "ae": 8, "s": 6370, "f": 35670 },
+        "不锈钢": { "vc": 85, "fz": 0.06, "ap": 0.35, "ae": 5, "s": 1690, "f": 4060 },
+        "铸铁": { "vc": 110, "fz": 0.09, "ap": 0.5, "ae": 6, "s": 2190, "f": 7880 },
+        "铜": { "vc": 160, "fz": 0.11, "ap": 0.7, "ae": 8, "s": 3180, "f": 14000 },
+        "钛合金": { "vc": 55, "fz": 0.045, "ap": 0.25, "ae": 4, "s": 1090, "f": 1960 }
+      }
+    },
+    {
+      "id": "T006",
+      "category": "milling",
+      "subCategory": "立铣刀",
+      "name": "D12平刀",
+      "params": {
+        "diameter": 12,
+        "cornerRadius": 0,
+        "flutes": 4,
+        "fluteLength": 24,
+        "overallLength": 75,
+        "shankDiameter": 12,
+        "coating": "TiAlN",
+        "material": "硬质合金"
+      },
+      "cuttingParams": {
+        "45钢": { "vc": 140, "fz": 0.06, "ap": 0.3, "ae": 4, "s": 3720, "f": 8930 },
+        "铝合金": { "vc": 350, "fz": 0.12, "ap": 0.6, "ae": 6, "s": 9280, "f": 44540 },
+        "不锈钢": { "vc": 90, "fz": 0.05, "ap": 0.3, "ae": 4, "s": 2390, "f": 4780 },
+        "铸铁": { "vc": 120, "fz": 0.08, "ap": 0.4, "ae": 5, "s": 3180, "f": 10180 },
+        "铜": { "vc": 180, "fz": 0.1, "ap": 0.5, "ae": 6, "s": 4770, "f": 19090 },
+        "钛合金": { "vc": 60, "fz": 0.04, "ap": 0.2, "ae": 3, "s": 1590, "f": 2540 }
+      }
+    },
+    {
+      "id": "T007",
+      "category": "milling",
+      "subCategory": "立铣刀",
+      "name": "D10平刀",
+      "params": {
+        "diameter": 10,
+        "cornerRadius": 0,
+        "flutes": 4,
+        "fluteLength": 20,
+        "overallLength": 70,
+        "shankDiameter": 10,
+        "coating": "TiAlN",
+        "material": "硬质合金"
+      },
+      "cuttingParams": {
+        "45钢": { "vc": 150, "fz": 0.05, "ap": 0.25, "ae": 3, "s": 4770, "f": 9540 },
+        "铝合金": { "vc": 380, "fz": 0.1, "ap": 0.5, "ae": 5, "s": 12120, "f": 48480 },
+        "不锈钢": { "vc": 95, "fz": 0.045, "ap": 0.25, "ae": 3, "s": 3020, "f": 5440 },
+        "铸铁": { "vc": 130, "fz": 0.07, "ap": 0.35, "ae": 4, "s": 4140, "f": 11600 },
+        "铜": { "vc": 200, "fz": 0.09, "ap": 0.4, "ae": 5, "s": 6370, "f": 22930 },
+        "钛合金": { "vc": 65, "fz": 0.035, "ap": 0.15, "ae": 2, "s": 2070, "f": 2900 }
+      }
+    },
+    {
+      "id": "T008",
+      "category": "milling",
+      "subCategory": "立铣刀",
+      "name": "D8平刀",
+      "params": {
+        "diameter": 8,
+        "cornerRadius": 0,
+        "flutes": 4,
+        "fluteLength": 16,
+        "overallLength": 63,
+        "shankDiameter": 8,
+        "coating": "TiAlN",
+        "material": "硬质合金"
+      },
+      "cuttingParams": {
+        "45钢": { "vc": 160, "fz": 0.04, "ap": 0.2, "ae": 2.5, "s": 6370, "f": 10190 },
+        "铝合金": { "vc": 400, "fz": 0.08, "ap": 0.4, "ae": 4, "s": 15920, "f": 50940 },
+        "不锈钢": { "vc": 100, "fz": 0.04, "ap": 0.2, "ae": 2.5, "s": 3980, "f": 6370 },
+        "铸铁": { "vc": 140, "fz": 0.06, "ap": 0.3, "ae": 3, "s": 5570, "f": 13370 },
+        "铜": { "vc": 220, "fz": 0.08, "ap": 0.35, "ae": 4, "s": 8760, "f": 28030 },
+        "钛合金": { "vc": 70, "fz": 0.03, "ap": 0.12, "ae": 2, "s": 2780, "f": 3340 }
+      }
+    },
+    {
+      "id": "T009",
+      "category": "milling",
+      "subCategory": "立铣刀",
+      "name": "D6平刀",
+      "params": {
+        "diameter": 6,
+        "cornerRadius": 0,
+        "flutes": 4,
+        "fluteLength": 12,
+        "overallLength": 57,
+        "shankDiameter": 6,
+        "coating": "TiAlN",
+        "material": "硬质合金"
+      },
+      "cuttingParams": {
+        "45钢": { "vc": 170, "fz": 0.035, "ap": 0.15, "ae": 2, "s": 9010, "f": 12610 },
+        "铝合金": { "vc": 420, "fz": 0.07, "ap": 0.3, "ae": 3, "s": 22270, "f": 62400 },
+        "不锈钢": { "vc": 105, "fz": 0.035, "ap": 0.15, "ae": 2, "s": 5570, "f": 7800 },
+        "铸铁": { "vc": 150, "fz": 0.05, "ap": 0.25, "ae": 2.5, "s": 7960, "f": 15920 },
+        "铜": { "vc": 250, "fz": 0.07, "ap": 0.3, "ae": 3, "s": 13260, "f": 37130 },
+        "钛合金": { "vc": 75, "fz": 0.025, "ap": 0.1, "ae": 1.5, "s": 3980, "f": 3980 }
+      }
+    },
+    {
+      "id": "T010",
+      "category": "milling",
+      "subCategory": "立铣刀",
+      "name": "D4平刀",
+      "params": {
+        "diameter": 4,
+        "cornerRadius": 0,
+        "flutes": 4,
+        "fluteLength": 8,
+        "overallLength": 50,
+        "shankDiameter": 4,
+        "coating": "TiAlN",
+        "material": "硬质合金"
+      },
+      "cuttingParams": {
+        "45钢": { "vc": 180, "fz": 0.025, "ap": 0.1, "ae": 1.5, "s": 14320, "f": 14320 },
+        "铝合金": { "vc": 450, "fz": 0.05, "ap": 0.2, "ae": 2, "s": 35810, "f": 71620 },
+        "不锈钢": { "vc": 110, "fz": 0.025, "ap": 0.1, "ae": 1.5, "s": 8750, "f": 8750 },
+        "铸铁": { "vc": 160, "fz": 0.04, "ap": 0.2, "ae": 2, "s": 12730, "f": 20370 },
+        "铜": { "vc": 280, "fz": 0.05, "ap": 0.2, "ae": 2, "s": 22370, "f": 44740 },
+        "钛合金": { "vc": 80, "fz": 0.02, "ap": 0.08, "ae": 1, "s": 6370, "f": 5090 }
+      }
+    },
+    {
+      "id": "T011",
+      "category": "milling",
+      "subCategory": "球头刀",
+      "name": "D16R8球刀",
+      "params": {
+        "diameter": 16,
+        "cornerRadius": 8,
+        "flutes": 2,
+        "fluteLength": 20,
+        "overallLength": 75,
+        "shankDiameter": 16,
+        "coating": "TiAlN",
+        "material": "硬质合金"
+      },
+      "cuttingParams": {
+        "45钢": { "vc": 100, "fz": 0.05, "ap": 0.3, "ae": 4, "s": 1990, "f": 1990 },
+        "铝合金": { "vc": 250, "fz": 0.08, "ap": 0.5, "ae": 6, "s": 4970, "f": 7950 },
+        "不锈钢": { "vc": 70, "fz": 0.04, "ap": 0.2, "ae": 3, "s": 1390, "f": 1110 },
+        "铸铁": { "vc": 90, "fz": 0.06, "ap": 0.35, "ae": 4, "s": 1790, "f": 2150 },
+        "铜": { "vc": 130, "fz": 0.06, "ap": 0.4, "ae": 5, "s": 2590, "f": 3110 },
+        "钛合金": { "vc": 45, "fz": 0.03, "ap": 0.15, "ae": 2, "s": 895, "f": 540 }
+      }
+    },
+    {
+      "id": "T012",
+      "category": "milling",
+      "subCategory": "球头刀",
+      "name": "D12R6球刀",
+      "params": {
+        "diameter": 12,
+        "cornerRadius": 6,
+        "flutes": 2,
+        "fluteLength": 16,
+        "overallLength": 70,
+        "shankDiameter": 12,
+        "coating": "TiAlN",
+        "material": "硬质合金"
+      },
+      "cuttingParams": {
+        "45钢": { "vc": 110, "fz": 0.04, "ap": 0.25, "ae": 3, "s": 2920, "f": 2340 },
+        "铝合金": { "vc": 280, "fz": 0.07, "ap": 0.4, "ae": 5, "s": 7430, "f": 10400 },
+        "不锈钢": { "vc": 75, "fz": 0.035, "ap": 0.15, "ae": 2.5, "s": 1990, "f": 1390 },
+        "铸铁": { "vc": 95, "fz": 0.05, "ap": 0.3, "ae": 3, "s": 2520, "f": 2520 },
+        "铜": { "vc": 140, "fz": 0.05, "ap": 0.35, "ae": 4, "s": 3710, "f": 3710 },
+        "钛合金": { "vc": 48, "fz": 0.025, "ap": 0.12, "ae": 1.5, "s": 1270, "f": 640 }
+      }
+    },
+    {
+      "id": "T013",
+      "category": "milling",
+      "subCategory": "球头刀",
+      "name": "D10R5球刀",
+      "params": {
+        "diameter": 10,
+        "cornerRadius": 5,
+        "flutes": 2,
+        "fluteLength": 14,
+        "overallLength": 65,
+        "shankDiameter": 10,
+        "coating": "TiAlN",
+        "material": "硬质合金"
+      },
+      "cuttingParams": {
+        "45钢": { "vc": 120, "fz": 0.035, "ap": 0.2, "ae": 2.5, "s": 3820, "f": 2670 },
+        "铝合金": { "vc": 300, "fz": 0.06, "ap": 0.35, "ae": 4, "s": 9550, "f": 11460 },
+        "不锈钢": { "vc": 80, "fz": 0.03, "ap": 0.12, "ae": 2, "s": 2550, "f": 1530 },
+        "铸铁": { "vc": 100, "fz": 0.045, "ap": 0.25, "ae": 2.5, "s": 3180, "f": 2860 },
+        "铜": { "vc": 150, "fz": 0.045, "ap": 0.3, "ae": 3.5, "s": 4770, "f": 4290 },
+        "钛合金": { "vc": 50, "fz": 0.02, "ap": 0.1, "ae": 1.2, "s": 1590, "f": 640 }
+      }
+    },
+    {
+      "id": "T014",
+      "category": "milling",
+      "subCategory": "球头刀",
+      "name": "D8R4球刀",
+      "params": {
+        "diameter": 8,
+        "cornerRadius": 4,
+        "flutes": 2,
+        "fluteLength": 12,
+        "overallLength": 60,
+        "shankDiameter": 8,
+        "coating": "TiAlN",
+        "material": "硬质合金"
+      },
+      "cuttingParams": {
+        "45钢": { "vc": 130, "fz": 0.03, "ap": 0.15, "ae": 2, "s": 5180, "f": 3110 },
+        "铝合金": { "vc": 320, "fz": 0.05, "ap": 0.3, "ae": 3, "s": 12730, "f": 12730 },
+        "不锈钢": { "vc": 85, "fz": 0.025, "ap": 0.1, "ae": 1.5, "s": 3380, "f": 1690 },
+        "铸铁": { "vc": 110, "fz": 0.04, "ap": 0.2, "ae": 2, "s": 4380, "f": 3500 },
+        "铜": { "vc": 160, "fz": 0.04, "ap": 0.25, "ae": 3, "s": 6370, "f": 5100 },
+        "钛合金": { "vc": 55, "fz": 0.018, "ap": 0.08, "ae": 1, "s": 2190, "f": 790 }
+      }
+    },
+    {
+      "id": "T015",
+      "category": "milling",
+      "subCategory": "球头刀",
+      "name": "D6R3球刀",
+      "params": {
+        "diameter": 6,
+        "cornerRadius": 3,
+        "flutes": 2,
+        "fluteLength": 10,
+        "overallLength": 55,
+        "shankDiameter": 6,
+        "coating": "TiAlN",
+        "material": "硬质合金"
+      },
+      "cuttingParams": {
+        "45钢": { "vc": 140, "fz": 0.025, "ap": 0.12, "ae": 1.5, "s": 7430, "f": 3720 },
+        "铝合金": { "vc": 350, "fz": 0.04, "ap": 0.25, "ae": 2.5, "s": 18560, "f": 14850 },
+        "不锈钢": { "vc": 90, "fz": 0.02, "ap": 0.08, "ae": 1.2, "s": 4770, "f": 1910 },
+        "铸铁": { "vc": 120, "fz": 0.035, "ap": 0.15, "ae": 1.5, "s": 6370, "f": 4460 },
+        "铜": { "vc": 180, "fz": 0.035, "ap": 0.2, "ae": 2.5, "s": 9550, "f": 6690 },
+        "钛合金": { "vc": 60, "fz": 0.015, "ap": 0.06, "ae": 0.8, "s": 3180, "f": 950 }
+      }
+    },
+    {
+      "id": "T016",
+      "category": "milling",
+      "subCategory": "圆鼻刀",
+      "name": "D20R2圆鼻刀",
+      "params": {
+        "diameter": 20,
+        "cornerRadius": 2,
+        "flutes": 4,
+        "fluteLength": 35,
+        "overallLength": 90,
+        "shankDiameter": 20,
+        "coating": "TiAlN",
+        "material": "硬质合金"
+      },
+      "cuttingParams": {
+        "45钢": { "vc": 120, "fz": 0.08, "ap": 0.5, "ae": 8, "s": 1910, "f": 6110 },
+        "铝合金": { "vc": 300, "fz": 0.15, "ap": 1.0, "ae": 10, "s": 4770, "f": 28620 },
+        "不锈钢": { "vc": 80, "fz": 0.07, "ap": 0.4, "ae": 6, "s": 1270, "f": 3560 },
+        "铸铁": { "vc": 100, "fz": 0.1, "ap": 0.6, "ae": 8, "s": 1590, "f": 6360 },
+        "铜": { "vc": 150, "fz": 0.12, "ap": 0.8, "ae": 10, "s": 2390, "f": 11470 },
+        "钛合金": { "vc": 50, "fz": 0.05, "ap": 0.3, "ae": 4, "s": 796, "f": 1590 }
+      }
+    },
+    {
+      "id": "T017",
+      "category": "milling",
+      "subCategory": "圆鼻刀",
+      "name": "D16R1圆鼻刀",
+      "params": {
+        "diameter": 16,
+        "cornerRadius": 1,
+        "flutes": 4,
+        "fluteLength": 28,
+        "overallLength": 80,
+        "shankDiameter": 16,
+        "coating": "TiAlN",
+        "material": "硬质合金"
+      },
+      "cuttingParams": {
+        "45钢": { "vc": 130, "fz": 0.07, "ap": 0.4, "ae": 6, "s": 2590, "f": 7250 },
+        "铝合金": { "vc": 320, "fz": 0.14, "ap": 0.8, "ae": 8, "s": 6370, "f": 35670 },
+        "不锈钢": { "vc": 85, "fz": 0.06, "ap": 0.35, "ae": 5, "s": 1690, "f": 4060 },
+        "铸铁": { "vc": 110, "fz": 0.09, "ap": 0.5, "ae": 6, "s": 2190, "f": 7880 },
+        "铜": { "vc": 160, "fz": 0.11, "ap": 0.7, "ae": 8, "s": 3180, "f": 14000 },
+        "钛合金": { "vc": 55, "fz": 0.045, "ap": 0.25, "ae": 4, "s": 1090, "f": 1960 }
+      }
+    },
+    {
+      "id": "T018",
+      "category": "milling",
+      "subCategory": "圆鼻刀",
+      "name": "D12R0.8圆鼻刀",
+      "params": {
+        "diameter": 12,
+        "cornerRadius": 0.8,
+        "flutes": 4,
+        "fluteLength": 22,
+        "overallLength": 75,
+        "shankDiameter": 12,
+        "coating": "TiAlN",
+        "material": "硬质合金"
+      },
+      "cuttingParams": {
+        "45钢": { "vc": 140, "fz": 0.06, "ap": 0.3, "ae": 4, "s": 3720, "f": 8930 },
+        "铝合金": { "vc": 350, "fz": 0.12, "ap": 0.6, "ae": 6, "s": 9280, "f": 44540 },
+        "不锈钢": { "vc": 90, "fz": 0.05, "ap": 0.3, "ae": 4, "s": 2390, "f": 4780 },
+        "铸铁": { "vc": 120, "fz": 0.08, "ap": 0.4, "ae": 5, "s": 3180, "f": 10180 },
+        "铜": { "vc": 180, "fz": 0.1, "ap": 0.5, "ae": 6, "s": 4770, "f": 19090 },
+        "钛合金": { "vc": 60, "fz": 0.04, "ap": 0.2, "ae": 3, "s": 1590, "f": 2540 }
+      }
+    },
+    {
+      "id": "T019",
+      "category": "milling",
+      "subCategory": "倒角刀",
+      "name": "D16*90°倒角刀",
+      "params": {
+        "diameter": 16,
+        "cornerRadius": 0,
+        "flutes": 4,
+        "fluteLength": 25,
+        "overallLength": 80,
+        "shankDiameter": 16,
+        "angle": 90,
+        "coating": "TiAlN",
+        "material": "硬质合金"
+      },
+      "cuttingParams": {
+        "45钢": { "vc": 80, "fz": 0.05, "ap": 0.3, "ae": 0, "s": 1590, "f": 3180 },
+        "铝合金": { "vc": 200, "fz": 0.08, "ap": 0.5, "ae": 0, "s": 3980, "f": 6370 },
+        "不锈钢": { "vc": 60, "fz": 0.04, "ap": 0.2, "ae": 0, "s": 1190, "f": 1900 },
+        "铸铁": { "vc": 70, "fz": 0.06, "ap": 0.3, "ae": 0, "s": 1390, "f": 3340 },
+        "铜": { "vc": 100, "fz": 0.06, "ap": 0.4, "ae": 0, "s": 1990, "f": 4770 },
+        "钛合金": { "vc": 40, "fz": 0.03, "ap": 0.15, "ae": 0, "s": 796, "f": 955 }
+      }
+    },
+    {
+      "id": "T020",
+      "category": "milling",
+      "subCategory": "倒角刀",
+      "name": "D12*120°倒角刀",
+      "params": {
+        "diameter": 12,
+        "cornerRadius": 0,
+        "flutes": 4,
+        "fluteLength": 20,
+        "overallLength": 70,
+        "shankDiameter": 12,
+        "angle": 120,
+        "coating": "TiAlN",
+        "material": "硬质合金"
+      },
+      "cuttingParams": {
+        "45钢": { "vc": 85, "fz": 0.04, "ap": 0.25, "ae": 0, "s": 2250, "f": 3600 },
+        "铝合金": { "vc": 220, "fz": 0.07, "ap": 0.4, "ae": 0, "s": 5840, "f": 8160 },
+        "不锈钢": { "vc": 65, "fz": 0.035, "ap": 0.18, "ae": 0, "s": 1720, "f": 2410 },
+        "铸铁": { "vc": 75, "fz": 0.05, "ap": 0.25, "ae": 0, "s": 1990, "f": 3980 },
+        "铜": { "vc": 110, "fz": 0.05, "ap": 0.35, "ae": 0, "s": 2920, "f": 5840 },
+        "钛合金": { "vc": 45, "fz": 0.025, "ap": 0.12, "ae": 0, "s": 1190, "f": 1190 }
+      }
+    },
+    {
+      "id": "T021",
+      "category": "drilling",
+      "subCategory": "麻花钻",
+      "name": "Φ10麻花钻",
+      "params": {
+        "diameter": 10,
+        "flutes": 2,
+        "fluteLength": 30,
+        "overallLength": 80,
+        "pointAngle": 118,
+        "coating": "TiN",
+        "material": "高速钢"
+      },
+      "cuttingParams": {
+        "45钢": { "vc": 25, "fz": 0.1, "ap": 10, "ae": 0, "s": 796, "f": 80 },
+        "铝合金": { "vc": 80, "fz": 0.15, "ap": 10, "ae": 0, "s": 2550, "f": 380 },
+        "不锈钢": { "vc": 15, "fz": 0.08, "ap": 10, "ae": 0, "s": 478, "f": 38 },
+        "铸铁": { "vc": 30, "fz": 0.12, "ap": 10, "ae": 0, "s": 955, "f": 115 },
+        "铜": { "vc": 40, "fz": 0.12, "ap": 10, "ae": 0, "s": 1270, "f": 152 },
+        "钛合金": { "vc": 12, "fz": 0.05, "ap": 10, "ae": 0, "s": 382, "f": 19 }
+      }
+    },
+    {
+      "id": "T022",
+      "category": "drilling",
+      "subCategory": "麻花钻",
+      "name": "Φ8麻花钻",
+      "params": {
+        "diameter": 8,
+        "flutes": 2,
+        "fluteLength": 25,
+        "overallLength": 70,
+        "pointAngle": 118,
+        "coating": "TiN",
+        "material": "高速钢"
+      },
+      "cuttingParams": {
+        "45钢": { "vc": 25, "fz": 0.08, "ap": 8, "ae": 0, "s": 995, "f": 80 },
+        "铝合金": { "vc": 80, "fz": 0.12, "ap": 8, "ae": 0, "s": 3180, "f": 380 },
+        "不锈钢": { "vc": 15, "fz": 0.06, "ap": 8, "ae": 0, "s": 597, "f": 36 },
+        "铸铁": { "vc": 30, "fz": 0.1, "ap": 8, "ae": 0, "s": 1190, "f": 119 },
+        "铜": { "vc": 40, "fz": 0.1, "ap": 8, "ae": 0, "s": 1590, "f": 159 },
+        "钛合金": { "vc": 12, "fz": 0.04, "ap": 8, "ae": 0, "s": 478, "f": 19 }
+      }
+    },
+    {
+      "id": "T023",
+      "category": "drilling",
+      "subCategory": "麻花钻",
+      "name": "Φ6麻花钻",
+      "params": {
+        "diameter": 6,
+        "flutes": 2,
+        "fluteLength": 20,
+        "overallLength": 60,
+        "pointAngle": 118,
+        "coating": "TiN",
+        "material": "高速钢"
+      },
+      "cuttingParams": {
+        "45钢": { "vc": 25, "fz": 0.06, "ap": 6, "ae": 0, "s": 1325, "f": 80 },
+        "铝合金": { "vc": 80, "fz": 0.1, "ap": 6, "ae": 0, "s": 4240, "f": 424 },
+        "不锈钢": { "vc": 15, "fz": 0.05, "ap": 6, "ae": 0, "s": 796, "f": 40 },
+        "铸铁": { "vc": 30, "fz": 0.08, "ap": 6, "ae": 0, "s": 1590, "f": 127 },
+        "铜": { "vc": 40, "fz": 0.08, "ap": 6, "ae": 0, "s": 2120, "f": 170 },
+        "钛合金": { "vc": 12, "fz": 0.03, "ap": 6, "ae": 0, "s": 637, "f": 19 }
+      }
+    },
+    {
+      "id": "T024",
+      "category": "drilling",
+      "subCategory": "麻花钻",
+      "name": "Φ5麻花钻",
+      "params": {
+        "diameter": 5,
+        "flutes": 2,
+        "fluteLength": 18,
+        "overallLength": 55,
+        "pointAngle": 118,
+        "coating": "TiN",
+        "material": "高速钢"
+      },
+      "cuttingParams": {
+        "45钢": { "vc": 25, "fz": 0.05, "ap": 5, "ae": 0, "s": 1590, "f": 80 },
+        "铝合金": { "vc": 80, "fz": 0.08, "ap": 5, "ae": 0, "s": 5090, "f": 407 },
+        "不锈钢": { "vc": 15, "fz": 0.04, "ap": 5, "ae": 0, "s": 955, "f": 38 },
+        "铸铁": { "vc": 30, "fz": 0.07, "ap": 5, "ae": 0, "s": 1910, "f": 134 },
+        "铜": { "vc": 40, "fz": 0.07, "ap": 5, "ae": 0, "s": 2550, "f": 179 },
+        "钛合金": { "vc": 12, "fz": 0.025, "ap": 5, "ae": 0, "s": 764, "f": 19 }
+      }
+    },
+    {
+      "id": "T025",
+      "category": "drilling",
+      "subCategory": "麻花钻",
+      "name": "Φ4麻花钻",
+      "params": {
+        "diameter": 4,
+        "flutes": 2,
+        "fluteLength": 15,
+        "overallLength": 50,
+        "pointAngle": 118,
+        "coating": "TiN",
+        "material": "高速钢"
+      },
+      "cuttingParams": {
+        "45钢": { "vc": 25, "fz": 0.04, "ap": 4, "ae": 0, "s": 1990, "f": 80 },
+        "铝合金": { "vc": 80, "fz": 0.06, "ap": 4, "ae": 0, "s": 6370, "f": 382 },
+        "不锈钢": { "vc": 15, "fz": 0.03, "ap": 4, "ae": 0, "s": 1190, "f": 36 },
+        "铸铁": { "vc": 30, "fz": 0.05, "ap": 4, "ae": 0, "s": 2390, "f": 120 },
+        "铜": { "vc": 40, "fz": 0.05, "ap": 4, "ae": 0, "s": 3180, "f": 159 },
+        "钛合金": { "vc": 12, "fz": 0.02, "ap": 4, "ae": 0, "s": 955, "f": 19 }
+      }
+    },
+    {
+      "id": "T026",
+      "category": "drilling",
+      "subCategory": "麻花钻",
+      "name": "Φ3麻花钻",
+      "params": {
+        "diameter": 3,
+        "flutes": 2,
+        "fluteLength": 12,
+        "overallLength": 45,
+        "pointAngle": 118,
+        "coating": "TiN",
+        "material": "高速钢"
+      },
+      "cuttingParams": {
+        "45钢": { "vc": 22, "fz": 0.03, "ap": 3, "ae": 0, "s": 2330, "f": 70 },
+        "铝合金": { "vc": 70, "fz": 0.05, "ap": 3, "ae": 0, "s": 7420, "f": 371 },
+        "不锈钢": { "vc": 12, "fz": 0.025, "ap": 3, "ae": 0, "s": 1270, "f": 32 },
+        "铸铁": { "vc": 25, "fz": 0.04, "ap": 3, "ae": 0, "s": 2650, "f": 106 },
+        "铜": { "vc": 35, "fz": 0.04, "ap": 3, "ae": 0, "s": 3710, "f": 148 },
+        "钛合金": { "vc": 10, "fz": 0.015, "ap": 3, "ae": 0, "s": 1060, "f": 16 }
+      }
+    },
+    {
+      "id": "T027",
+      "category": "drilling",
+      "subCategory": "中心钻",
+      "name": "A2.5中心钻",
+      "params": {
+        "diameter": 2.5,
+        "flutes": 2,
+        "fluteLength": 8,
+        "overallLength": 40,
+        "pointAngle": 120,
+        "coating": "TiN",
+        "material": "高速钢"
+      },
+      "cuttingParams": {
+        "45钢": { "vc": 20, "fz": 0.02, "ap": 2.5, "ae": 0, "s": 2550, "f": 51 },
+        "铝合金": { "vc": 60, "fz": 0.04, "ap": 2.5, "ae": 0, "s": 7640, "f": 306 },
+        "不锈钢": { "vc": 10, "fz": 0.015, "ap": 2.5, "ae": 0, "s": 1270, "f": 19 },
+        "铸铁": { "vc": 20, "fz": 0.03, "ap": 2.5, "ae": 0, "s": 2550, "f": 77 },
+        "铜": { "vc": 30, "fz": 0.03, "ap": 2.5, "ae": 0, "s": 3820, "f": 115 },
+        "钛合金": { "vc": 8, "fz": 0.01, "ap": 2.5, "ae": 0, "s": 1020, "f": 10 }
+      }
+    },
+    {
+      "id": "T028",
+      "category": "drilling",
+      "subCategory": "铰刀",
+      "name": "Φ10铰刀",
+      "params": {
+        "diameter": 10,
+        "flutes": 6,
+        "fluteLength": 20,
+        "overallLength": 70,
+        "cuttingEdges": 6,
+        "coating": "TiN",
+        "material": "硬质合金"
+      },
+      "cuttingParams": {
+        "45钢": { "vc": 12, "fz": 0.05, "ap": 0.15, "ae": 0, "s": 382, "f": 115 },
+        "铝合金": { "vc": 30, "fz": 0.08, "ap": 0.2, "ae": 0, "s": 955, "f": 458 },
+        "不锈钢": { "vc": 8, "fz": 0.04, "ap": 0.1, "ae": 0, "s": 255, "f": 41 },
+        "铸铁": { "vc": 15, "fz": 0.06, "ap": 0.15, "ae": 0, "s": 478, "f": 172 },
+        "铜": { "vc": 20, "fz": 0.06, "ap": 0.15, "ae": 0, "s": 637, "f": 229 },
+        "钛合金": { "vc": 6, "fz": 0.025, "ap": 0.08, "ae": 0, "s": 191, "f": 19 }
+      }
+    },
+    {
+      "id": "T029",
+      "category": "drilling",
+      "subCategory": "镗刀",
+      "name": "Φ25镗刀",
+      "params": {
+        "diameter": 25,
+        "flutes": 1,
+        "fluteLength": 30,
+        "overallLength": 100,
+        "coating": "PCD",
+        "material": "硬质合金"
+      },
+      "cuttingParams": {
+        "45钢": { "vc": 80, "fz": 0.08, "ap": 0.3, "ae": 0, "s": 1020, "f": 163 },
+        "铝合金": { "vc": 200, "fz": 0.12, "ap": 0.5, "ae": 0, "s": 2550, "f": 612 },
+        "不锈钢": { "vc": 50, "fz": 0.06, "ap": 0.2, "ae": 0, "s": 637, "f": 76 },
+        "铸铁": { "vc": 70, "fz": 0.1, "ap": 0.3, "ae": 0, "s": 891, "f": 178 },
+        "铜": { "vc": 100, "fz": 0.1, "ap": 0.4, "ae": 0, "s": 1270, "f": 254 },
+        "钛合金": { "vc": 35, "fz": 0.04, "ap": 0.15, "ae": 0, "s": 446, "f": 36 }
+      }
+    },
+    {
+      "id": "T030",
+      "category": "drilling",
+      "subCategory": "丝锥",
+      "name": "M10丝锥",
+      "params": {
+        "diameter": 10,
+        "flutes": 3,
+        "fluteLength": 25,
+        "overallLength": 70,
+        "threadType": "M",
+        "pitch": 1.5,
+        "coating": "TiN",
+        "material": "高速钢"
+      },
+      "cuttingParams": {
+        "45钢": { "vc": 8, "fz": 1.5, "ap": 1.5, "ae": 0, "s": 255, "f": 383 },
+        "铝合金": { "vc": 15, "fz": 1.5, "ap": 1.5, "ae": 0, "s": 478, "f": 717 },
+        "不锈钢": { "vc": 5, "fz": 1.5, "ap": 1.5, "ae": 0, "s": 159, "f": 239 },
+        "铸铁": { "vc": 10, "fz": 1.5, "ap": 1.5, "ae": 0, "s": 318, "f": 477 },
+        "铜": { "vc": 12, "fz": 1.5, "ap": 1.5, "ae": 0, "s": 382, "f": 573 },
+        "钛合金": { "vc": 4, "fz": 1.5, "ap": 1.5, "ae": 0, "s": 127, "f": 191 }
+      }
+    },
+    {
+      "id": "T031",
+      "category": "drilling",
+      "subCategory": "丝锥",
+      "name": "M8丝锥",
+      "params": {
+        "diameter": 8,
+        "flutes": 3,
+        "fluteLength": 20,
+        "overallLength": 60,
+        "threadType": "M",
+        "pitch": 1.25,
+        "coating": "TiN",
+        "material": "高速钢"
+      },
+      "cuttingParams": {
+        "45钢": { "vc": 8, "fz": 1.25, "ap": 1.25, "ae": 0, "s": 318, "f": 398 },
+        "铝合金": { "vc": 15, "fz": 1.25, "ap": 1.25, "ae": 0, "s": 597, "f": 746 },
+        "不锈钢": { "vc": 5, "fz": 1.25, "ap": 1.25, "ae": 0, "s": 199, "f": 249 },
+        "铸铁": { "vc": 10, "fz": 1.25, "ap": 1.25, "ae": 0, "s": 398, "f": 498 },
+        "铜": { "vc": 12, "fz": 1.25, "ap": 1.25, "ae": 0, "s": 478, "f": 598 },
+        "钛合金": { "vc": 4, "fz": 1.25, "ap": 1.25, "ae": 0, "s": 159, "f": 199 }
+      }
+    },
+    {
+      "id": "T032",
+      "category": "drilling",
+      "subCategory": "丝锥",
+      "name": "M6丝锥",
+      "params": {
+        "diameter": 6,
+        "flutes": 3,
+        "fluteLength": 18,
+        "overallLength": 55,
+        "threadType": "M",
+        "pitch": 1.0,
+        "coating": "TiN",
+        "material": "高速钢"
+      },
+      "cuttingParams": {
+        "45钢": { "vc": 8, "fz": 1.0, "ap": 1.0, "ae": 0, "s": 424, "f": 424 },
+        "铝合金": { "vc": 15, "fz": 1.0, "ap": 1.0, "ae": 0, "s": 796, "f": 796 },
+        "不锈钢": { "vc": 5, "fz": 1.0, "ap": 1.0, "ae": 0, "s": 265, "f": 265 },
+        "铸铁": { "vc": 10, "fz": 1.0, "ap": 1.0, "ae": 0, "s": 530, "f": 530 },
+        "铜": { "vc": 12, "fz": 1.0, "ap": 1.0, "ae": 0, "s": 637, "f": 637 },
+        "钛合金": { "vc": 4, "fz": 1.0, "ap": 1.0, "ae": 0, "s": 212, "f": 212 }
+      }
+    },
+    {
+      "id": "T033",
+      "category": "turning",
+      "subCategory": "外圆车刀",
+      "name": "DNMG150408外圆刀",
+      "params": {
+        "insertSize": 15,
+        "noseRadius": 0.8,
+        "rakeAngle": 0,
+        "holderWidth": 20,
+        "coating": "TiAlN",
+        "material": "硬质合金"
+      },
+      "cuttingParams": {
+        "45钢": { "vc": 150, "fz": 0.2, "ap": 2.0, "ae": 0.5, "s": 3180, "f": 0.2 },
+        "铝合金": { "vc": 300, "fz": 0.25, "ap": 3.0, "ae": 0.8, "s": 6370, "f": 0.25 },
+        "不锈钢": { "vc": 100, "fz": 0.15, "ap": 1.5, "ae": 0.4, "s": 2120, "f": 0.15 },
+        "铸铁": { "vc": 120, "fz": 0.2, "ap": 2.5, "ae": 0.5, "s": 2550, "f": 0.2 },
+        "铜": { "vc": 180, "fz": 0.2, "ap": 2.5, "ae": 0.6, "s": 3820, "f": 0.2 },
+        "钛合金": { "vc": 60, "fz": 0.1, "ap": 1.0, "ae": 0.3, "s": 1270, "f": 0.1 }
+      }
+    },
+    {
+      "id": "T034",
+      "category": "turning",
+      "subCategory": "内孔车刀",
+      "name": "SCLCR1616内孔刀",
+      "params": {
+        "barDiameter": 16,
+        "insertSize": 12,
+        "noseRadius": 0.8,
+        "rakeAngle": 0,
+        "coating": "TiAlN",
+        "material": "硬质合金"
+      },
+      "cuttingParams": {
+        "45钢": { "vc": 120, "fz": 0.15, "ap": 1.5, "ae": 0.4, "s": 3180, "f": 0.15 },
+        "铝合金": { "vc": 250, "fz": 0.2, "ap": 2.5, "ae": 0.6, "s": 6370, "f": 0.2 },
+        "不锈钢": { "vc": 80, "fz": 0.12, "ap": 1.2, "ae": 0.3, "s": 2120, "f": 0.12 },
+        "铸铁": { "vc": 100, "fz": 0.15, "ap": 2.0, "ae": 0.4, "s": 2550, "f": 0.15 },
+        "铜": { "vc": 150, "fz": 0.15, "ap": 2.0, "ae": 0.5, "s": 3820, "f": 0.15 },
+        "钛合金": { "vc": 50, "fz": 0.08, "ap": 0.8, "ae": 0.25, "s": 1270, "f": 0.08 }
+      }
+    },
+    {
+      "id": "T035",
+      "category": "turning",
+      "subCategory": "螺纹车刀",
+      "name": "16ER螺纹刀",
+      "params": {
+        "insertSize": 16,
+        "threadPitch": 1.5,
+        "rakeAngle": 0,
+        "coating": "TiAlN",
+        "material": "硬质合金"
+      },
+      "cuttingParams": {
+        "45钢": { "vc": 80, "fz": 1.5, "ap": 0.05, "ae": 0, "s": 1700, "f": 1.5 },
+        "铝合金": { "vc": 150, "fz": 1.5, "ap": 0.08, "ae": 0, "s": 3180, "f": 1.5 },
+        "不锈钢": { "vc": 50, "fz": 1.5, "ap": 0.04, "ae": 0, "s": 1060, "f": 1.5 },
+        "铸铁": { "vc": 70, "fz": 1.5, "ap": 0.05, "ae": 0, "s": 1490, "f": 1.5 },
+        "铜": { "vc": 100, "fz": 1.5, "ap": 0.06, "ae": 0, "s": 2120, "f": 1.5 },
+        "钛合金": { "vc": 35, "fz": 1.5, "ap": 0.03, "ae": 0, "s": 743, "f": 1.5 }
+      }
+    },
+    {
+      "id": "T036",
+      "category": "turning",
+      "subCategory": "切槽刀",
+      "name": "GFIR2020切槽刀",
+      "params": {
+        "holderWidth": 20,
+        "bladeWidth": 3,
+        "cuttingDepth": 15,
+        "coating": "TiAlN",
+        "material": "硬质合金"
+      },
+      "cuttingParams": {
+        "45钢": { "vc": 100, "fz": 0.08, "ap": 3.0, "ae": 3, "s": 1590, "f": 0.08 },
+        "铝合金": { "vc": 200, "fz": 0.1, "ap": 5.0, "ae": 3, "s": 3180, "f": 0.1 },
+        "不锈钢": { "vc": 60, "fz": 0.06, "ap": 2.0, "ae": 2, "s": 955, "f": 0.06 },
+        "铸铁": { "vc": 80, "fz": 0.08, "ap": 4.0, "ae": 3, "s": 1270, "f": 0.08 },
+        "铜": { "vc": 120, "fz": 0.08, "ap": 4.0, "ae": 3, "s": 1910, "f": 0.08 },
+        "钛合金": { "vc": 40, "fz": 0.04, "ap": 1.5, "ae": 1.5, "s": 637, "f": 0.04 }
+      }
+    }
+  ]
+}

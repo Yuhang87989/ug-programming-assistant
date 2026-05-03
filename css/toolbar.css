@@ -1,0 +1,454 @@
+/* ============================================
+   UG编程助手 - Windows工具栏样式
+   Windows菜单栏/选项卡风格 (紧凑星空外挂版)
+   ============================================ */
+
+/* 顶部工具栏 - 深色紧凑 */
+.app-toolbar {
+  display: flex;
+  align-items: center;
+  height: var(--toolbar-height);
+  padding: 0 2px;
+  background: var(--win-header);
+  border-bottom: 1px solid var(--win-border);
+  flex-shrink: 0;
+  position: relative;
+  z-index: 100;
+}
+
+/* 品牌区 */
+.toolbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0 6px 0 2px;
+  height: 100%;
+  border-right: 1px solid var(--win-border);
+  margin-right: 2px;
+}
+
+.brand-icon {
+  width: 18px;
+  height: 18px;
+}
+
+.brand-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.brand-text {
+  font-size: var(--font-xs);
+  font-weight: 600;
+  color: var(--win-text);
+}
+
+.brand-version {
+  font-size: 9px;
+  color: var(--win-text-muted);
+}
+
+/* 菜单栏容器 */
+.menu-bar {
+  display: flex;
+  align-items: stretch;
+  height: 100%;
+}
+
+.menu-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 0 6px;
+  font-size: var(--font-xs);
+  color: var(--win-text-secondary);
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.15s;
+}
+
+.menu-item:hover {
+  background: var(--win-selection);
+  color: var(--win-text);
+}
+
+.menu-item.active {
+  background: var(--win-active);
+  color: white;
+}
+
+/* 下拉菜单 */
+.menu-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 140px;
+  background: var(--win-content);
+  border: 1px solid var(--win-border);
+  border-radius: 4px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+  z-index: 1000;
+  display: none;
+  overflow: hidden;
+}
+
+.menu-item:hover .menu-dropdown,
+.menu-dropdown.show {
+  display: block;
+}
+
+.menu-dropdown-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 10px;
+  font-size: var(--font-xs);
+  color: var(--win-text);
+  cursor: pointer;
+}
+
+.menu-dropdown-item:hover {
+  background: var(--win-selection);
+}
+
+.menu-dropdown-item.disabled {
+  color: var(--win-text-disabled);
+  cursor: not-allowed;
+}
+
+.menu-dropdown-item .shortcut {
+  color: var(--win-text-muted);
+  margin-left: 16px;
+  font-size: var(--font-xs);
+}
+
+.menu-dropdown-separator {
+  height: 1px;
+  background: var(--win-border);
+  margin: 2px 4px;
+}
+
+/* 选项卡按钮 - Windows Tab风格 紧凑 */
+.toolbar-tabs {
+  display: flex;
+  align-items: stretch;
+  gap: 2px;
+  flex: 1;
+  height: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.toolbar-tabs::-webkit-scrollbar {
+  height: 0;
+}
+
+.tab-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1px;
+  min-width: 44px;
+  height: 100%;
+  padding: 0 6px;
+  background: transparent;
+  border: 1px solid transparent;
+  border-bottom: none;
+  color: var(--win-text-secondary);
+  cursor: pointer;
+  font-size: 9px;
+  position: relative;
+  transition: all 0.15s;
+}
+
+.tab-btn:hover {
+  background: var(--win-selection);
+  color: var(--win-text);
+}
+
+.tab-btn.active {
+  background: var(--win-content);
+  color: var(--win-active);
+  border-color: var(--win-border) var(--win-border) transparent var(--win-border);
+  font-weight: 600;
+}
+
+.tab-btn.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--win-active);
+}
+
+.tab-icon {
+  width: 14px;
+  height: 14px;
+}
+
+.tab-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* 工具栏操作按钮 */
+.toolbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding-left: 6px;
+  border-left: 1px solid var(--win-border);
+  margin-left: 6px;
+}
+
+.toolbar-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  background: var(--win-btn-face);
+  border: 1px solid var(--win-border);
+  border-radius: 4px;
+  cursor: pointer;
+  color: var(--win-text-secondary);
+  transition: all 0.15s;
+}
+
+.toolbar-btn:hover {
+  background: var(--win-btn-highlight);
+  border-color: var(--win-active);
+  color: var(--win-active);
+}
+
+.toolbar-btn:active {
+  transform: scale(0.95);
+}
+
+.toolbar-btn svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* ============================================
+   数控模块浮动面板样式 - 星空外挂风格
+   ============================================ */
+
+/* 面板遮罩层 */
+.nc-panel-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9998;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+.nc-panel-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* 数控模块面板容器 - 紧凑浮动 */
+.nc-panel {
+  width: 360px;
+  max-width: 360px;
+  min-width: 320px;
+  max-height: 320px;
+  background: linear-gradient(135deg, #1a1a2e 0%, #252542 100%);
+  border: 1px solid #3d3d5c;
+  border-radius: 8px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255,255,255,0.05), inset 0 1px 0 rgba(255,255,255,0.05);
+  transform: scale(0.9);
+  transition: transform 0.2s ease;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.nc-panel-overlay.active .nc-panel {
+  transform: scale(1);
+}
+
+/* 面板头部 */
+.nc-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  background: linear-gradient(180deg, #16213e 0%, #1a1a2e 100%);
+  border-bottom: 1px solid #2d2d44;
+  flex-shrink: 0;
+}
+
+.nc-panel-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #e8e8e8;
+}
+
+.nc-panel-icon {
+  width: 18px;
+  height: 18px;
+  color: #4da6ff;
+}
+
+.nc-panel-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.nc-panel-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.15s ease;
+}
+
+.nc-panel-close:hover {
+  background: rgba(255,100,100,0.25);
+  border-color: rgba(255,100,100,0.4);
+}
+
+.nc-panel-close svg {
+  width: 12px;
+  height: 12px;
+  color: #888;
+  transition: color 0.15s;
+}
+
+.nc-panel-close:hover svg {
+  color: #ff6b6b;
+}
+
+/* 面板主体 */
+.nc-panel-body {
+  padding: 12px;
+  flex: 1;
+  overflow-y: auto;
+}
+
+/* 数控模块按钮网格 - 4列2行 */
+.nc-module-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+.nc-module-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 12px 6px;
+  background: #252542;
+  border: 1px solid #3d3d5c;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  color: #e8e8e8;
+}
+
+.nc-module-btn:hover {
+  background: #2d2d5c;
+  border-color: #4da6ff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(77, 166, 255, 0.2);
+}
+
+.nc-module-btn:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.nc-module-icon {
+  font-size: 22px;
+  line-height: 1;
+}
+
+.nc-module-name {
+  font-size: 11px;
+  font-weight: 500;
+  color: #ccc;
+  white-space: nowrap;
+  text-align: center;
+}
+
+/* 快捷键提示区域 */
+.nc-shortcuts-section {
+  margin-top: 10px;
+  padding: 8px 10px;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid #2d2d44;
+  border-radius: 4px;
+}
+
+.nc-shortcuts-title {
+  font-size: 10px;
+  font-weight: 600;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+}
+
+.nc-shortcuts-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+}
+
+.nc-shortcut-item {
+  font-size: 10px;
+  color: #888;
+}
+
+.nc-shortcut-item kbd {
+  display: inline-block;
+  padding: 2px 5px;
+  background: #1a1a2e;
+  border: 1px solid #3d3d5c;
+  border-radius: 3px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: #aaa;
+  margin-right: 4px;
+}
+
+/* 响应式调整 */
+@media (max-width: 600px) {
+  .nc-panel {
+    width: 90%;
+    min-width: 280px;
+    max-height: 70vh;
+  }
+  
+  .nc-module-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .nc-shortcuts-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

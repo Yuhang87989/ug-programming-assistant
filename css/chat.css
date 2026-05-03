@@ -1,0 +1,648 @@
+/* ============================================
+   UG编程助手 - Windows聊天界面样式
+   AI编程顾问对话界面 - Windows对话框风格
+   ============================================ */
+
+/* AI聊天容器 - Windows对话框风格 */
+.ai-chat-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--win-content);
+  border: 1px solid var(--win-border);
+}
+
+/* 聊天头部 - Windows标题栏 */
+.ai-chat-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 3px 6px;
+  background: var(--win-header);
+  border-bottom: 1px solid var(--win-border);
+}
+
+.ai-avatar {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--win-btn-face);
+  border: 2px solid;
+  border-color: var(--win-btn-highlight) var(--win-btn-shadow) var(--win-btn-shadow) var(--win-btn-highlight);
+  font-size: 14px;
+}
+
+.ai-avatar svg {
+  width: 16px;
+  height: 16px;
+}
+
+.ai-info {
+  flex: 1;
+}
+
+.ai-name {
+  font-size: var(--font-sm);
+  font-weight: 600;
+  color: var(--win-text);
+}
+
+.ai-status {
+  font-size: var(--font-xs);
+  color: var(--win-success);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.ai-status.offline {
+  color: var(--win-text-muted);
+}
+
+.ai-status .status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.ai-actions {
+  display: flex;
+  gap: 2px;
+}
+
+/* 消息列表 - Windows对话框气泡 */
+.ai-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ai-message {
+  display: flex;
+  gap: 8px;
+  max-width: 85%;
+  animation: messageIn 0.15s ease;
+}
+
+@keyframes messageIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.ai-message.user {
+  align-self: flex-end;
+  flex-direction: row-reverse;
+}
+
+.ai-message.assistant {
+  align-self: flex-start;
+}
+
+/* Windows风格头像 */
+.ai-message-avatar {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--win-btn-face);
+  border: 1px solid var(--win-border);
+  font-size: var(--font-xs);
+  font-weight: 600;
+}
+
+.ai-message.user .ai-message-avatar {
+  background: var(--win-active);
+  border-color: var(--win-active);
+  color: white;
+}
+
+.ai-message.assistant .ai-message-avatar {
+  background: var(--win-header);
+  border-color: var(--win-border);
+  color: var(--win-text);
+}
+
+.ai-message-content {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Windows风格消息气泡 */
+.ai-message-bubble {
+  padding: 6px 10px;
+  border: 1px solid;
+  font-size: var(--font-sm);
+  line-height: 1.4;
+  color: var(--win-text);
+}
+
+.ai-message.user .ai-message-bubble {
+  background: #e8f4f8;
+  border-color: var(--win-info);
+  border-radius: 0 8px 8px 8px;
+}
+
+.ai-message.assistant .ai-message-bubble {
+  background: var(--win-content);
+  border-color: var(--win-border);
+  border-radius: 8px 0 8px 8px;
+}
+
+.ai-message-time {
+  font-size: var(--font-xs);
+  color: var(--win-text-muted);
+  margin-top: 4px;
+  padding: 0 4px;
+}
+
+.ai-message.user .ai-message-time {
+  text-align: right;
+}
+
+/* 消息内容格式化 - Windows风格 */
+.ai-message-bubble h4 {
+  font-size: var(--font-sm);
+  font-weight: 600;
+  color: var(--win-active);
+  margin: 8px 0 4px 0;
+}
+
+.ai-message-bubble h4:first-child {
+  margin-top: 0;
+}
+
+.ai-message-bubble ul,
+.ai-message-bubble ol {
+  margin: 6px 0;
+  padding-left: 20px;
+}
+
+.ai-message-bubble li {
+  margin-bottom: 4px;
+}
+
+.ai-message-bubble strong {
+  color: var(--win-text);
+  font-weight: 600;
+}
+
+.ai-message-bubble code {
+  font-family: var(--font-mono);
+  background: var(--win-header);
+  padding: 1px 4px;
+  border: 1px solid var(--win-border-light);
+  font-size: var(--font-xs);
+}
+
+.ai-message-bubble pre {
+  background: var(--win-header);
+  padding: 8px;
+  border: 1px solid var(--win-border);
+  overflow-x: auto;
+  margin: 6px 0;
+  font-family: var(--font-mono);
+  font-size: var(--font-xs);
+}
+
+.ai-message-bubble pre code {
+  background: none;
+  padding: 0;
+  border: none;
+}
+
+/* Windows风格参数卡片 */
+.ai-param-card {
+  background: var(--win-content);
+  border: 1px solid var(--win-border);
+  padding: 8px;
+  margin: 6px 0;
+}
+
+.ai-param-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 3px 0;
+  border-bottom: 1px solid var(--win-border-light);
+}
+
+.ai-param-row:last-child {
+  border-bottom: none;
+}
+
+.ai-param-label {
+  color: var(--win-text-muted);
+  font-size: var(--font-xs);
+}
+
+.ai-param-value {
+  color: var(--win-text);
+  font-family: var(--font-mono);
+  font-size: var(--font-sm);
+  font-weight: 500;
+}
+
+/* Windows风格方案建议 */
+.ai-scheme-card {
+  background: #fffbe6;
+  border: 1px solid var(--win-warning);
+  padding: 8px;
+  margin: 6px 0;
+}
+
+.ai-scheme-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 6px;
+  color: var(--win-warning);
+  font-weight: 600;
+  font-size: var(--font-sm);
+}
+
+.ai-scheme-step {
+  display: flex;
+  gap: 6px;
+  padding: 4px 0;
+  border-left: 2px solid var(--win-border);
+  padding-left: 10px;
+  margin-left: 6px;
+}
+
+.ai-scheme-step-num {
+  color: var(--win-active);
+  font-weight: 600;
+  flex-shrink: 0;
+  font-size: var(--font-sm);
+}
+
+/* Windows快速操作按钮 */
+.ai-quick-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding: 6px 8px;
+  background: var(--win-header);
+  border-top: 1px solid var(--win-border);
+}
+
+.ai-quick-btn {
+  padding: 3px 8px;
+  background: var(--win-btn-face);
+  border: 2px solid;
+  border-color: var(--win-btn-highlight) var(--win-btn-shadow) var(--win-btn-shadow) var(--win-btn-highlight);
+  color: var(--win-text);
+  font-size: var(--font-xs);
+  cursor: pointer;
+}
+
+.ai-quick-btn:hover {
+  background: #e8e8e8;
+}
+
+.ai-quick-btn:active {
+  border-color: var(--win-btn-shadow) var(--win-btn-highlight) var(--win-btn-highlight) var(--win-btn-shadow);
+}
+
+.ai-quick-btn svg {
+  width: 12px;
+  height: 12px;
+}
+
+/* Windows风格输入区域 */
+.ai-input-area {
+  display: flex;
+  align-items: flex-end;
+  gap: 6px;
+  padding: 6px 8px;
+  background: var(--win-header);
+  border-top: 1px solid var(--win-border);
+}
+
+.ai-input-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 2px solid;
+  border-color: #808080 #ffffff #ffffff #808080;
+}
+
+.ai-input-wrapper:focus-within {
+  border-color: var(--win-active);
+}
+
+.ai-input {
+  width: 100%;
+  min-height: 36px;
+  max-height: 80px;
+  padding: 4px 8px;
+  background: transparent;
+  border: none;
+  color: var(--win-text);
+  font-family: inherit;
+  font-size: var(--font-sm);
+  line-height: 1.4;
+  resize: none;
+  outline: none;
+}
+
+.ai-input::placeholder {
+  color: var(--win-text-muted);
+}
+
+.ai-input-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2px 6px;
+  background: var(--win-bg);
+  border-top: 1px solid var(--win-border-light);
+  font-size: var(--font-xs);
+  color: var(--win-text-muted);
+}
+
+.ai-input-hint {
+  font-size: var(--font-xs);
+  color: var(--win-text-muted);
+}
+
+.ai-input-actions {
+  display: flex;
+  gap: 4px;
+}
+
+/* Windows风格发送按钮 */
+.ai-send-btn {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--win-btn-face);
+  border: 2px solid;
+  border-color: var(--win-btn-highlight) var(--win-btn-shadow) var(--win-btn-shadow) var(--win-btn-highlight);
+  cursor: pointer;
+  color: var(--win-text);
+  flex-shrink: 0;
+}
+
+.ai-send-btn:hover {
+  background: #e8e8e8;
+}
+
+.ai-send-btn:active {
+  border-color: var(--win-btn-shadow) var(--win-btn-highlight) var(--win-btn-highlight) var(--win-btn-shadow);
+}
+
+.ai-send-btn:disabled {
+  color: var(--win-text-disabled);
+  cursor: not-allowed;
+}
+
+.ai-send-btn svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* Windows风格麦克风按钮 */
+.ai-mic-btn {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--win-btn-face);
+  border: 2px solid;
+  border-color: var(--win-btn-highlight) var(--win-btn-shadow) var(--win-btn-shadow) var(--win-btn-highlight);
+  cursor: pointer;
+  color: var(--win-text);
+}
+
+.ai-mic-btn:hover {
+  background: #e8e8e8;
+}
+
+.ai-mic-btn:active {
+  border-color: var(--win-btn-shadow) var(--win-btn-highlight) var(--win-btn-highlight) var(--win-btn-shadow);
+}
+
+.ai-mic-btn.recording {
+  background: var(--win-danger);
+  border-color: var(--win-danger);
+  color: white;
+}
+
+.ai-mic-btn svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* Windows打字指示器 */
+.ai-typing-indicator {
+  display: flex;
+  gap: 4px;
+  padding: 8px;
+  background: var(--win-content);
+  border: 1px solid var(--win-border);
+}
+
+.ai-typing-indicator span {
+  width: 8px;
+  height: 8px;
+  background: var(--win-text-muted);
+  animation: typing 1s infinite;
+}
+
+.ai-typing-indicator span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.ai-typing-indicator span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes typing {
+  0%, 60%, 100% {
+    transform: translateY(0);
+  }
+  30% {
+    transform: translateY(-4px);
+  }
+}
+
+/* Windows导入按钮组 */
+.ai-import-actions {
+  display: flex;
+  gap: 6px;
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid var(--win-border-light);
+}
+
+.ai-import-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 4px 8px;
+  background: var(--win-btn-face);
+  border: 2px solid;
+  border-color: var(--win-btn-highlight) var(--win-btn-shadow) var(--win-btn-shadow) var(--win-btn-highlight);
+  color: var(--win-text);
+  font-size: var(--font-xs);
+  cursor: pointer;
+}
+
+.ai-import-btn:hover {
+  background: #e8e8e8;
+}
+
+.ai-import-btn:active {
+  border-color: var(--win-btn-shadow) var(--win-btn-highlight) var(--win-btn-highlight) var(--win-btn-shadow);
+}
+
+/* Windows聊天历史记录 */
+.ai-history-panel {
+  width: 200px;
+  background: var(--win-content);
+  border-right: 1px solid var(--win-border);
+}
+
+.ai-history-header {
+  padding: 4px 8px;
+  background: var(--win-header);
+  border-bottom: 1px solid var(--win-border);
+  font-weight: 600;
+  font-size: var(--font-sm);
+}
+
+.ai-history-list {
+  overflow-y: auto;
+}
+
+.ai-history-item {
+  padding: 6px 8px;
+  border-bottom: 1px solid var(--win-border-light);
+  cursor: pointer;
+  font-size: var(--font-sm);
+  color: var(--win-text);
+}
+
+.ai-history-item:hover {
+  background: var(--win-selection);
+}
+
+.ai-history-item.active {
+  background: var(--win-row-selected);
+}
+
+/* Windows对话框底部按钮 */
+.ai-dialog-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 8px;
+  background: var(--win-bg);
+  border-top: 1px solid var(--win-border);
+}
+
+.ai-dialog-footer-left,
+.ai-dialog-footer-right {
+  display: flex;
+  gap: 4px;
+}
+
+/* Windows代码块工具栏 */
+.code-block-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2px 6px;
+  background: var(--win-header);
+  border-bottom: 1px solid var(--win-border);
+  font-size: var(--font-xs);
+}
+
+.code-lang {
+  color: var(--win-text-muted);
+}
+
+.code-copy-btn {
+  padding: 2px 6px;
+  background: var(--win-btn-face);
+  border: 1px solid var(--win-border);
+  cursor: pointer;
+  font-size: var(--font-xs);
+}
+
+.code-copy-btn:hover {
+  background: #e8e8e8;
+}
+
+/* Windows引用消息 */
+.ai-quote {
+  border-left: 3px solid var(--win-border);
+  padding-left: 8px;
+  margin: 4px 0;
+  color: var(--win-text-secondary);
+  font-size: var(--font-xs);
+}
+
+/* Windows链接预览 */
+.ai-link-preview {
+  background: var(--win-content);
+  border: 1px solid var(--win-border);
+  padding: 8px;
+  margin: 6px 0;
+}
+
+.ai-link-title {
+  font-weight: 600;
+  color: var(--win-active);
+  margin-bottom: 4px;
+}
+
+.ai-link-desc {
+  font-size: var(--font-xs);
+  color: var(--win-text-secondary);
+}
+
+/* Windows消息加载状态 */
+.ai-loading {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px;
+  color: var(--win-text-muted);
+  font-size: var(--font-sm);
+}
+
+.ai-loading-spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--win-border);
+  border-top-color: var(--win-active);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

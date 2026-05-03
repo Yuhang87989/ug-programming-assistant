@@ -1,0 +1,753 @@
+/* ============================================
+   UG编程助手 - Windows增强样式
+   智能推荐模块、一刀流方案、模板卡片等
+   ============================================ */
+
+/* ========== 智能推荐模块 - Windows对话框风格 ========== */
+.rec-container {
+  display: flex;
+  gap: 8px;
+  height: 100%;
+}
+
+.rec-form {
+  flex: 1;
+  min-width: 300px;
+  max-width: 380px;
+  background: var(--win-content);
+  border: 1px solid var(--win-border);
+  padding: 8px;
+  overflow-y: auto;
+}
+
+.rec-form-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--win-border);
+}
+
+.rec-form-icon {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--win-btn-face);
+  border: 2px solid;
+  border-color: var(--win-btn-highlight) var(--win-btn-shadow) var(--win-btn-shadow) var(--win-btn-highlight);
+  color: var(--win-active);
+}
+
+.rec-form-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.rec-form-header h3 {
+  font-size: var(--font-base);
+  font-weight: 600;
+  color: var(--win-text);
+}
+
+/* 表单区域 */
+.form-section {
+  margin-bottom: 16px;
+}
+
+.form-section-title {
+  font-size: var(--font-sm);
+  font-weight: 600;
+  color: var(--win-text);
+  margin-bottom: 6px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--win-border-light);
+}
+
+.rec-form-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  margin-top: 16px;
+}
+
+.rec-hint {
+  font-size: var(--font-xs);
+  color: var(--win-text-muted);
+}
+
+/* 推荐结果区域 */
+.rec-results {
+  flex: 2;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.rec-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+  color: var(--win-text-muted);
+}
+
+.rec-empty svg {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 12px;
+  opacity: 0.4;
+}
+
+.rec-empty h4 {
+  font-size: var(--font-base);
+  color: var(--win-text-secondary);
+  margin-bottom: 4px;
+}
+
+.rec-suggestions {
+  margin-top: 24px;
+  width: 100%;
+}
+
+.rec-suggestion-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px;
+  background: var(--win-content);
+  border: 1px solid var(--win-border);
+  margin-bottom: 6px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.rec-suggestion-item:hover {
+  background: var(--win-selection);
+}
+
+.suggestion-icon {
+  font-size: var(--font-lg);
+  width: 24px;
+  text-align: center;
+}
+
+.suggestion-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.suggestion-text strong {
+  color: var(--win-text);
+  font-size: var(--font-sm);
+}
+
+.suggestion-text small {
+  color: var(--win-text-muted);
+  font-size: var(--font-xs);
+}
+
+.results-title {
+  font-size: var(--font-base);
+  font-weight: 600;
+  color: var(--win-text);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.results-count {
+  font-size: var(--font-xs);
+  font-weight: normal;
+  color: var(--win-text-muted);
+}
+
+.results-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 6px;
+  margin-top: 12px;
+  padding-top: 8px;
+  border-top: 1px solid var(--win-border);
+}
+
+/* 推荐结果卡片 - Windows卡片风格 */
+.rec-result-card {
+  background: var(--win-content);
+  border: 1px solid var(--win-border);
+  margin-bottom: 8px;
+}
+
+.rec-result-card:hover {
+  border-color: var(--win-text-muted);
+}
+
+.rec-result-card.selected {
+  border-color: var(--win-active);
+  border-width: 2px;
+}
+
+.rec-result-card.recommended {
+  background: #f0f8ff;
+}
+
+.rec-result-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 8px;
+  border-bottom: 1px solid var(--win-border-light);
+}
+
+.rec-result-title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.rec-result-rank {
+  font-size: var(--font-xs);
+  color: var(--win-warning);
+  font-weight: 600;
+}
+
+.rec-result-name {
+  font-weight: 600;
+  color: var(--win-text);
+  font-size: var(--font-sm);
+}
+
+.rec-result-badge {
+  font-size: var(--font-xs);
+  padding: 1px 6px;
+  background: var(--win-header);
+  border: 1px solid var(--win-border);
+  color: var(--win-active);
+}
+
+.rec-result-body {
+  padding: 8px;
+}
+
+.rec-result-param-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4px;
+  margin-bottom: 8px;
+}
+
+.rec-result-param {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 4px;
+  background: var(--win-bg);
+  border: 1px solid var(--win-border-light);
+}
+
+.rec-result-param-label {
+  font-size: var(--font-xs);
+  color: var(--win-text-muted);
+}
+
+.rec-result-param-value {
+  font-size: var(--font-sm);
+  color: var(--win-text);
+  font-family: var(--font-mono);
+}
+
+.rec-result-param-value.highlight {
+  color: var(--win-active);
+  font-weight: 600;
+}
+
+.rec-result-ug,
+.rec-result-plunge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px;
+  background: var(--win-bg);
+  border: 1px solid var(--win-border-light);
+  margin-bottom: 4px;
+  font-size: var(--font-xs);
+}
+
+.ug-label,
+.plunge-label {
+  color: var(--win-text-muted);
+}
+
+.ug-value,
+.plunge-value {
+  color: var(--win-text);
+  font-family: var(--font-mono);
+}
+
+.rec-result-reason {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  padding: 6px;
+  background: #e8f4f8;
+  border: 1px solid var(--win-info);
+  font-size: var(--font-xs);
+  color: var(--win-text-secondary);
+}
+
+.rec-result-reason svg {
+  width: 12px;
+  height: 12px;
+  flex-shrink: 0;
+  color: var(--win-info);
+}
+
+.rec-result-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 8px;
+  background: var(--win-header);
+  border-top: 1px solid var(--win-border);
+}
+
+.rec-result-score {
+  font-size: var(--font-xs);
+  color: var(--win-text-muted);
+}
+
+.rec-result-actions {
+  display: flex;
+  gap: 4px;
+}
+
+.rec-result-actions-header {
+  display: flex;
+  gap: 2px;
+}
+
+/* Windows小图标按钮 */
+.btn-icon-sm {
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--win-btn-face);
+  border: 2px solid;
+  border-color: var(--win-btn-highlight) var(--win-btn-shadow) var(--win-btn-shadow) var(--win-btn-highlight);
+  color: var(--win-text);
+  cursor: pointer;
+  font-size: 11px;
+}
+
+.btn-icon-sm:hover {
+  background: #e8e8e8;
+}
+
+.btn-icon-sm:active {
+  border-color: var(--win-btn-shadow) var(--win-btn-highlight) var(--win-btn-highlight) var(--win-btn-shadow);
+}
+
+.btn-icon-sm.active {
+  background: var(--win-selection);
+  border-color: var(--win-active);
+  color: var(--win-active);
+}
+
+.btn-icon-sm svg {
+  width: 12px;
+  height: 12px;
+}
+
+/* ========== 方案对比 - Windows对话框 ========== */
+.compare-panel {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--win-content);
+  border: 2px solid;
+  border-color: var(--win-btn-highlight) var(--win-btn-shadow) var(--win-btn-shadow) var(--win-btn-highlight);
+  box-shadow: 4px 4px 0 rgba(0,0,0,0.3);
+  padding: 12px;
+  width: 90%;
+  max-width: 700px;
+  max-height: 80vh;
+  overflow: auto;
+  z-index: 1000;
+}
+
+.compare-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--win-border);
+}
+
+.compare-header h4 {
+  font-size: var(--font-base);
+  font-weight: 600;
+  color: var(--win-text);
+}
+
+.compare-table {
+  overflow-x: auto;
+}
+
+.compare-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.compare-table th,
+.compare-table td {
+  padding: 4px 8px;
+  text-align: left;
+  border: 1px solid var(--win-border);
+  font-size: var(--font-sm);
+}
+
+.compare-table th {
+  background: var(--win-header);
+  font-weight: 600;
+  color: var(--win-text);
+}
+
+.compare-table td {
+  color: var(--win-text-secondary);
+  font-family: var(--font-mono);
+  font-size: var(--font-sm);
+}
+
+.compare-table td.highlight {
+  color: var(--win-active);
+  font-weight: 600;
+  background: #e8f4f8;
+}
+
+/* ========== 一刀流方案 - Windows警告框 ========== */
+.onepass-section {
+  background: #fff8f0;
+  border: 1px solid var(--win-warning);
+  padding: 12px;
+  margin-bottom: 12px;
+}
+
+.onepass-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.onepass-icon {
+  font-size: 24px;
+}
+
+.onepass-title h3 {
+  font-size: var(--font-base);
+  font-weight: 600;
+  color: var(--win-warning);
+}
+
+.onepass-title p {
+  font-size: var(--font-xs);
+  color: var(--win-text-muted);
+}
+
+.onepass-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.onepass-card {
+  background: var(--win-content);
+  border: 1px solid var(--win-border);
+  padding: 8px;
+}
+
+.onepass-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.onepass-name {
+  font-weight: 600;
+  color: var(--win-text);
+  font-size: var(--font-sm);
+}
+
+.onepass-process {
+  font-size: var(--font-xs);
+  padding: 1px 6px;
+  background: #fff3e0;
+  border: 1px solid var(--win-warning);
+  color: var(--win-warning);
+}
+
+.onepass-desc {
+  font-size: var(--font-xs);
+  color: var(--win-text-secondary);
+  margin-bottom: 6px;
+}
+
+.onepass-steps {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 6px;
+}
+
+.onepass-step-badge {
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--win-header);
+  border: 1px solid var(--win-border);
+  font-size: var(--font-xs);
+  font-weight: 600;
+}
+
+.onepass-step-badge.active {
+  background: var(--win-active);
+  border-color: var(--win-active);
+  color: white;
+}
+
+.onepass-params {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4px;
+  font-size: var(--font-xs);
+}
+
+.onepass-params dt {
+  color: var(--win-text-muted);
+}
+
+.onepass-params dd {
+  color: var(--win-text);
+  font-family: var(--font-mono);
+}
+
+/* ========== 模板卡片 - Windows列表项 ========== */
+.template-card {
+  background: var(--win-content);
+  border: 1px solid var(--win-border);
+  padding: 8px;
+  margin-bottom: 8px;
+  cursor: pointer;
+}
+
+.template-card:hover {
+  background: var(--win-selection);
+}
+
+.template-card.selected {
+  border-color: var(--win-active);
+  border-width: 2px;
+}
+
+.template-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.template-name {
+  font-weight: 600;
+  color: var(--win-text);
+  font-size: var(--font-sm);
+}
+
+.template-type {
+  font-size: var(--font-xs);
+  color: var(--win-text-muted);
+}
+
+.template-desc {
+  font-size: var(--font-xs);
+  color: var(--win-text-secondary);
+}
+
+/* ========== 批量操作 - Windows工具栏 ========== */
+.batch-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 8px;
+  background: var(--win-header);
+  border-bottom: 1px solid var(--win-border);
+}
+
+.batch-toolbar-left,
+.batch-toolbar-right {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.batch-info {
+  flex: 1;
+  font-size: var(--font-xs);
+  color: var(--win-text-secondary);
+}
+
+/* ========== 导入导出 - Windows文件对话框 ========== */
+.import-export-bar {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 8px;
+  background: var(--win-header);
+  border-bottom: 1px solid var(--win-border);
+}
+
+.import-export-btn {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 10px;
+  background: var(--win-btn-face);
+  border: 2px solid;
+  border-color: var(--win-btn-highlight) var(--win-btn-shadow) var(--win-btn-shadow) var(--win-btn-highlight);
+  cursor: pointer;
+  font-size: var(--font-sm);
+  color: var(--win-text);
+}
+
+.import-export-btn:hover {
+  background: #e8e8e8;
+}
+
+.import-export-btn:active {
+  border-color: var(--win-btn-shadow) var(--win-btn-highlight) var(--win-btn-highlight) var(--win-btn-shadow);
+}
+
+.import-export-btn svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* ========== 过滤器 - Windows工具栏 ========== */
+.filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 8px;
+  background: var(--win-bg);
+  border-bottom: 1px solid var(--win-border);
+}
+
+.filter-group {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.filter-label {
+  font-size: var(--font-xs);
+  color: var(--win-text-muted);
+}
+
+.filter-select {
+  padding: 2px 20px 2px 4px;
+  font-size: var(--font-xs);
+  background: #fff;
+  border: 2px solid;
+  border-color: #808080 #ffffff #ffffff #808080;
+}
+
+.filter-input {
+  padding: 2px 4px;
+  font-size: var(--font-xs);
+  width: 120px;
+  background: #fff;
+  border: 2px solid;
+  border-color: #808080 #ffffff #ffffff #808080;
+}
+
+.filter-clear {
+  font-size: var(--font-xs);
+  color: var(--win-active);
+  cursor: pointer;
+}
+
+.filter-clear:hover {
+  text-decoration: underline;
+}
+
+/* ========== 分组视图 - Windows树形列表 ========== */
+.group-view {
+  border: 1px solid var(--win-border);
+  background: var(--win-content);
+}
+
+.group-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 8px;
+  background: var(--win-header);
+  border-bottom: 1px solid var(--win-border);
+  cursor: pointer;
+  font-weight: 600;
+  font-size: var(--font-sm);
+  color: var(--win-text);
+}
+
+.group-header:hover {
+  background: #d8d8d8;
+}
+
+.group-toggle {
+  font-size: 10px;
+  font-weight: bold;
+  width: 14px;
+}
+
+.group-toggle.expanded::before {
+  content: '-';
+}
+
+.group-toggle.collapsed::before {
+  content: '+';
+}
+
+.group-count {
+  font-size: var(--font-xs);
+  color: var(--win-text-muted);
+  margin-left: auto;
+}
+
+.group-items {
+  padding-left: 20px;
+}
+
+.group-item {
+  padding: 4px 8px 4px 20px;
+  border-bottom: 1px solid var(--win-border-light);
+  cursor: pointer;
+  font-size: var(--font-sm);
+}
+
+.group-item:hover {
+  background: var(--win-row-hover);
+}
+
+.group-item.selected {
+  background: var(--win-row-selected);
+}

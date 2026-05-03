@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="UG NX编程辅助工具 - 刀具参数库、加工模板、智能推荐">
+  <title>UG编程助手</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%23f0f0f0' width='100' height='100' rx='0'/><text y='70' x='50' text-anchor='middle' font-size='50' fill='%23333'>UG</text></svg>">
+  <!-- SheetJS for Excel export -->
+  <script src="https://cdn.sheetjs.com/xlsx-0.20.1/package/dist/xlsx.full.min.js"></script>
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/toolbar.css">
+  <link rel="stylesheet" href="css/panel.css">
+  <link rel="stylesheet" href="css/table.css">
+  <link rel="stylesheet" href="css/form.css">
+  <link rel="stylesheet" href="css/chat.css">
+  <link rel="stylesheet" href="css/enhance.css">
+  <link rel="stylesheet" href="css/edm.css">
+</head>
+<body>
+  <!-- Windows窗口框架 -->
+  <div class="window-frame">
+    
+    <!-- Windows标题栏 -->
+    <div class="window-titlebar">
+      <div class="titlebar-left">
+        <svg class="titlebar-icon" viewBox="0 0 24 24" width="16" height="16">
+          <path fill="#003366" d="M12 2L2 7v10l10 5 10-5V7L12 2zm0 2.18l6.9 3.45L12 11.09 5.1 7.63 12 4.18zM4 8.82l7 3.5v7.36l-7-3.5V8.82zm9 10.86v-7.36l7-3.5v7.36l-7 3.5z"/>
+        </svg>
+        <span class="titlebar-title">UG编程助手 v2.1</span>
+      </div>
+      <div class="titlebar-right">
+        <button class="titlebar-btn minimize" title="最小化">
+          <svg viewBox="0 0 10 10"><path fill="currentColor" d="M0 5h10v1H0z"/></svg>
+        </button>
+        <button class="titlebar-btn maximize" title="最大化">
+          <svg viewBox="0 0 10 10"><path fill="none" stroke="currentColor" stroke-width="1" d="M1 1h8v8H1z"/></svg>
+        </button>
+        <button class="titlebar-btn close" title="关闭">
+          <svg viewBox="0 0 10 10"><path fill="currentColor" d="M1 1l8 8M9 1l-8 8" stroke="currentColor" stroke-width="1.5"/></svg>
+        </button>
+      </div>
+    </div>
+    
+    <!-- 主应用区域 -->
+    <div id="app">
+      
+      <!-- 顶部工具栏 - Windows菜单栏风格 -->
+      <header class="app-toolbar">
+        <div class="toolbar-brand">
+          <svg class="brand-icon" viewBox="0 0 24 24">
+            <path fill="#003366" d="M12 2L2 7v10l10 5 10-5V7L12 2zm0 2.18l6.9 3.45L12 11.09 5.1 7.63 12 4.18zM4 8.82l7 3.5v7.36l-7-3.5V8.82zm9 10.86v-7.36l7-3.5v7.36l-7 3.5z"/>
+          </svg>
+          <span class="brand-text">UG编程助手</span>
+          <span class="brand-version">v2.1</span>
+        </div>
+        
+        <!-- 菜单栏 -->
+        <nav class="menu-bar">
+          <div class="menu-item">
+            文件
+            <div class="menu-dropdown">
+              <div class="menu-dropdown-item">新建刀具</div>
+              <div class="menu-dropdown-item">导入刀具库...</div>
+              <div class="menu-dropdown-item">导出刀具库...</div>
+              <div class="menu-dropdown-separator"></div>
+              <div class="menu-dropdown-item">退出 <span class="shortcut">Alt+F4</span></div>
+            </div>
+          </div>
+          <div class="menu-item">
+            编辑
+            <div class="menu-dropdown">
+              <div class="menu-dropdown-item">撤销 <span class="shortcut">Ctrl+Z</span></div>
+              <div class="menu-dropdown-item">重做 <span class="shortcut">Ctrl+Y</span></div>
+              <div class="menu-dropdown-separator"></div>
+              <div class="menu-dropdown-item">复制 <span class="shortcut">Ctrl+C</span></div>
+              <div class="menu-dropdown-item">粘贴 <span class="shortcut">Ctrl+V</span></div>
+            </div>
+          </div>
+          <div class="menu-item">
+            视图
+            <div class="menu-dropdown">
+              <div class="menu-dropdown-item">刀具库</div>
+              <div class="menu-dropdown-item">加工模板</div>
+              <div class="menu-dropdown-item">程序单</div>
+              <div class="menu-dropdown-separator"></div>
+              <div class="menu-dropdown-item">左侧面板</div>
+              <div class="menu-dropdown-item">右侧面板</div>
+            </div>
+          </div>
+          <div class="menu-item">
+            帮助
+            <div class="menu-dropdown">
+              <div class="menu-dropdown-item">快捷键</div>
+              <div class="menu-dropdown-item">使用帮助</div>
+              <div class="menu-dropdown-separator"></div>
+              <div class="menu-dropdown-item">关于</div>
+            </div>
+          </div>
+        </nav>
+        
+        <!-- 选项卡按钮 -->
+        <nav class="toolbar-tabs" role="tablist">
+          <button class="tab-btn active" data-tab="nc-control" data-tooltip="数控模块 (Ctrl+`)" role="tab" aria-selected="true">
+            <svg class="tab-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M19.43 12.98c.04-.32.07-.64.07-.98s-.03-.66-.07-.98l2.11-1.65c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.3-.61-.22l-2.49 1c-.52-.4-1.08-.73-1.69-.98l-.38-2.65C14.46 2.18 14.25 2 14 2h-4c-.25 0-.46.18-.49.42l-.38 2.65c-.61.25-1.17.59-1.69.98l-2.49-1c-.23-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64l2.11 1.65c-.04.32-.07.65-.07.98s.03.66.07.98l-2.11 1.65c-.19.15-.24.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1c.52.4 1.08.73 1.69.98l.38 2.65c.03.24.24.42.49.42h4c.25 0 .46-.18.49-.42l.38-2.65c.61-.25 1.17-.59 1.69-.98l2.49 1c.23.09.49 0 .61-.22l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.65zM12 15.5c-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5 3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5z"/></svg>
+            <span>数控</span>
+          </button>
+          <button class="tab-btn" data-tab="settings" data-tooltip="系统设置 (Ctrl+7)" role="tab">
+            <svg class="tab-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M19.14 12.94c.04-.31.06-.63.06-.94 0-.31-.02-.63-.06-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.04.31-.06.63-.06.94s.02.63.06.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg>
+            <span>设置</span>
+          </button>
+          <button class="tab-btn" data-tab="toolkit" data-tooltip="辅助工具集 (Ctrl+8)" role="tab">
+            <svg class="tab-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"/></svg>
+            <span>工具集</span>
+          </button>
+        </nav>
+        
+        <div class="toolbar-actions">
+          <button class="toolbar-btn" id="btn-search" title="搜索 (Ctrl+F)">
+            <svg viewBox="0 0 24 24"><path fill="currentColor" d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+          </button>
+          <button class="toolbar-btn" id="btn-help" title="帮助 (F1)">
+            <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"/></svg>
+          </button>
+        </div>
+      </header>
+
+      <!-- 主内容区 -->
+      <main class="app-main">
+        <aside class="panel-left" id="panel-left">
+          <div class="panel-header">
+            <h3>功能导航</h3>
+          </div>
+          <div class="panel-content" id="tree-container"></div>
+        </aside>
+
+        <section class="content-area" id="content-area">
+          <div class="content-header">
+            <div class="content-title">
+              <h2 id="module-title">刀具参数库</h2>
+              <span class="record-count" id="record-count">共 0 条记录</span>
+            </div>
+            <div class="content-actions"></div>
+          </div>
+          <div class="content-body" id="content-body"></div>
+        </section>
+
+        <aside class="panel-right" id="panel-right">
+          <div class="panel-header">
+            <h3>详情信息</h3>
+            <button class="panel-collapse" id="panel-collapse">
+              <svg viewBox="0 0 24 24"><path fill="currentColor" d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+            </button>
+          </div>
+          <div class="panel-content" id="detail-container">
+            <div class="detail-placeholder">
+              <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+              <p>选择项目查看详情</p>
+            </div>
+          </div>
+        </aside>
+      </main>
+
+      <!-- 状态栏 -->
+      <footer class="app-statusbar">
+        <div class="status-left">
+          <span class="status-item status-ready" id="status-indicator">
+            <span class="status-dot"></span>
+            就绪
+          </span>
+          <span class="status-divider">|</span>
+          <span class="status-item" id="status-module">当前模块: 刀具参数库</span>
+        </div>
+        <div class="status-center">
+          <span class="status-item" id="status-selection">未选择</span>
+        </div>
+        <div class="status-right">
+          <span class="status-item" id="status-records">记录: 0</span>
+          <span class="status-divider">|</span>
+          <span class="status-item">F1 帮助</span>
+          <span class="status-divider">|</span>
+          <span class="status-item">Ctrl+F 搜索</span>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+  <!-- 搜索面板 -->
+  <div class="search-overlay" id="search-overlay">
+    <div class="search-panel">
+      <div class="search-header">
+        <input type="text" class="search-input" id="search-input" placeholder="搜索刀具、模板、材料...">
+        <button class="search-close" id="search-close">
+          <svg viewBox="0 0 24 24"><path fill="currentColor" d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </div>
+      <div class="search-results" id="search-results">
+        <div class="search-hint">输入关键词搜索...</div>
+      </div>
+      <div class="search-footer">
+        <span><kbd>↑↓</kbd> 选择</span>
+        <span><kbd>Enter</kbd> 确认</span>
+        <span><kbd>Esc</kbd> 关闭</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 数控模块浮动面板 -->
+  <div class="nc-panel-overlay" id="nc-panel-overlay">
+    <div class="nc-panel">
+      <div class="nc-panel-header">
+        <div class="nc-panel-title">
+          <svg class="nc-panel-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M19.43 12.98c.04-.32.07-.64.07-.98s-.03-.66-.07-.98l2.11-1.65c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.3-.61-.22l-2.49 1c-.52-.4-1.08-.73-1.69-.98l-.38-2.65C14.46 2.18 14.25 2 14 2h-4c-.25 0-.46.18-.49.42l-.38 2.65c-.61.25-1.17.59-1.69.98l-2.49-1c-.23-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64l2.11 1.65c-.04.32-.07.65-.07.98s.03.66.07.98l-2.11 1.65c-.19.15-.24.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1c.52.4 1.08.73 1.69.98l.38 2.65c.03.24.24.42.49.42h4c.25 0 .46-.18.49-.42l.38-2.65c.61-.25 1.17-.59 1.69-.98l2.49 1c.23.09.49 0 .61-.22l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.65zM12 15.5c-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5 3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5z"/></svg>
+          <span>数控编程</span>
+        </div>
+        <button class="nc-panel-close" id="nc-panel-close" title="关闭 (Esc)">
+          <svg viewBox="0 0 24 24"><path fill="currentColor" d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </div>
+      <div class="nc-panel-body">
+        <div class="nc-module-grid" id="nc-module-grid">
+          <button class="nc-module-btn" data-module="tool-db" title="刀具库 (Ctrl+1)">
+            <span class="nc-module-icon">🔧</span>
+            <span class="nc-module-name">刀具库</span>
+          </button>
+          <button class="nc-module-btn" data-module="mach-template" title="模板 (Ctrl+2)">
+            <span class="nc-module-icon">📋</span>
+            <span class="nc-module-name">模板</span>
+          </button>
+          <button class="nc-module-btn" data-module="smart-rec" title="推荐 (Ctrl+3)">
+            <span class="nc-module-icon">💡</span>
+            <span class="nc-module-name">推荐</span>
+          </button>
+          <button class="nc-module-btn" data-module="prog-sheet" title="程序单 (Ctrl+4)">
+            <span class="nc-module-icon">📄</span>
+            <span class="nc-module-name">程序单</span>
+          </button>
+          <button class="nc-module-btn" data-module="ai-advisor" title="AI顾问 (Ctrl+5)">
+            <span class="nc-module-icon">🤖</span>
+            <span class="nc-module-name">AI顾问</span>
+          </button>
+          <button class="nc-module-btn" data-module="work-coord" title="坐标 (Ctrl+6)">
+            <span class="nc-module-icon">📍</span>
+            <span class="nc-module-name">坐标</span>
+          </button>
+          <button class="nc-module-btn" data-module="edm" title="拆电极 (Ctrl+9)">
+            <span class="nc-module-icon">⚡</span>
+            <span class="nc-module-name">拆电极</span>
+          </button>
+          <button class="nc-module-btn" data-module="nc-quick" title="工艺 (Ctrl+0)">
+            <span class="nc-module-icon">⚙️</span>
+            <span class="nc-module-name">工艺</span>
+          </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 帮助对话框 -->
+  <div class="modal-overlay" id="help-modal">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3>快捷键帮助</h3>
+        <button class="modal-close" data-close="help-modal">×</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-groupbox">
+          <span class="form-groupbox-title">模块切换 (全局)</span>
+          <table class="detail-list" style="margin-top:8px;">
+            <tr><td><kbd>Ctrl+`</kbd></td><td>数控模块面板</td></tr>
+            <tr><td><kbd>Ctrl+1</kbd></td><td>刀具参数库</td></tr>
+            <tr><td><kbd>Ctrl+2</kbd></td><td>加工模板</td></tr>
+            <tr><td><kbd>Ctrl+3</kbd></td><td>智能推荐</td></tr>
+            <tr><td><kbd>Ctrl+4</kbd></td><td>程序单</td></tr>
+            <tr><td><kbd>Ctrl+5</kbd></td><td>AI编程顾问</td></tr>
+            <tr><td><kbd>Ctrl+6</kbd></td><td>坐标设定</td></tr>
+            <tr><td><kbd>Ctrl+7</kbd></td><td>系统设置</td></tr>
+            <tr><td><kbd>Ctrl+8</kbd></td><td>辅助工具集</td></tr>
+            <tr><td><kbd>Ctrl+9</kbd></td><td>拆电极工具</td></tr>
+            <tr><td><kbd>Ctrl+0</kbd></td><td>加工工艺</td></tr>
+          </table>
+        </div>
+        <div class="form-groupbox" style="margin-top:12px;">
+          <span class="form-groupbox-title">通用快捷键</span>
+          <table class="detail-list" style="margin-top:8px;">
+            <tr><td><kbd>Ctrl+F</kbd></td><td>全局搜索</td></tr>
+            <tr><td><kbd>F1</kbd></td><td>帮助</td></tr>
+            <tr><td><kbd>Ctrl+S</kbd></td><td>保存</td></tr>
+            <tr><td><kbd>Ctrl+N</kbd></td><td>新建</td></tr>
+            <tr><td><kbd>Delete</kbd></td><td>删除选中</td></tr>
+            <tr><td><kbd>Enter</kbd></td><td>确认/编辑</td></tr>
+            <tr><td><kbd>Esc</kbd></td><td>取消/关闭</td></tr>
+          </table>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn" data-close="help-modal">关闭</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 确认对话框模板 -->
+  <div class="modal-overlay" id="confirm-modal">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-header">
+        <h3 id="confirm-title">确认操作</h3>
+        <button class="modal-close" data-close="confirm-modal">×</button>
+      </div>
+      <div class="modal-body">
+        <p id="confirm-message" style="text-align:center;padding:16px 0;">确定要执行此操作吗？</p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn" id="confirm-cancel" data-close="confirm-modal">取消</button>
+        <button class="btn btn-primary" id="confirm-ok">确定</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast提示 -->
+  <div id="toast-container" style="position:fixed;bottom:40px;right:20px;z-index:9999;"></div>
+
+  <script src="js/app.js" type="module"></script>
+</body>
+</html>

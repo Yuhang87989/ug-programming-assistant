@@ -1,0 +1,286 @@
+/* ============================================
+   UG编程助手 - Windows面板样式
+   左侧功能树 + 右侧详情面板 (紧凑星空外挂版)
+   ============================================ */
+
+/* Windows TreeView树形控件 - 紧凑 */
+.tree-container {
+  padding: 2px;
+}
+
+/* 树节点 */
+.tree-node {
+  user-select: none;
+}
+
+.tree-item {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  padding: 2px 4px;
+  cursor: pointer;
+  font-size: var(--font-xs);
+  color: var(--win-text);
+  border-radius: 3px;
+  transition: background 0.1s;
+}
+
+.tree-item:hover {
+  background: var(--win-selection);
+}
+
+.tree-item.selected {
+  background: var(--win-active);
+  color: white;
+}
+
+/* 树展开/折叠按钮 */
+.tree-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  font-size: 9px;
+  font-weight: bold;
+  color: var(--win-text-muted);
+}
+
+.tree-toggle.expanded::before {
+  content: '-';
+}
+
+.tree-toggle.collapsed::before {
+  content: '+';
+}
+
+.tree-toggle:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+/* 树图标 */
+.tree-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  font-size: 11px;
+}
+
+.tree-icon.folder {
+  color: #808080;
+}
+
+.tree-icon.tool {
+  color: #4da6ff;
+}
+
+.tree-icon.template {
+  color: #4caf50;
+}
+
+.tree-icon.onepass {
+  color: #ff9800;
+}
+
+.tree-icon svg {
+  width: 12px;
+  height: 12px;
+}
+
+/* 树标签 */
+.tree-label {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tree-count {
+  font-size: 9px;
+  color: var(--win-text-muted);
+  background: var(--win-header);
+  padding: 0 4px;
+  border: 1px solid var(--win-border);
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+
+/* 树子节点 */
+.tree-children {
+  padding-left: 14px;
+}
+
+.tree-node.collapsed > .tree-children {
+  display: none;
+}
+
+/* 详情面板卡片 - 深色 */
+.detail-card {
+  background: var(--win-content);
+  border: 1px solid var(--win-border);
+  margin-bottom: 6px;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.detail-card-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 8px;
+  background: var(--win-header);
+  border-bottom: 1px solid var(--win-border);
+}
+
+.detail-card-icon {
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--win-content);
+  border: 1px solid var(--win-border);
+  border-radius: 3px;
+  color: var(--win-active);
+}
+
+.detail-card-icon svg {
+  width: 12px;
+  height: 12px;
+}
+
+.detail-card-title {
+  flex: 1;
+}
+
+.detail-card-title h4 {
+  font-size: var(--font-xs);
+  font-weight: 600;
+  color: var(--win-text);
+}
+
+.detail-card-title span {
+  font-size: 9px;
+  color: var(--win-text-muted);
+}
+
+.detail-card-body {
+  padding: 6px;
+}
+
+/* 详情行 */
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3px 0;
+  border-bottom: 1px solid var(--win-border-light);
+}
+
+.detail-row:last-child {
+  border-bottom: none;
+}
+
+.detail-label {
+  font-size: var(--font-xs);
+  color: var(--win-text-muted);
+}
+
+.detail-value {
+  font-size: var(--font-sm);
+  color: var(--win-text);
+  font-family: var(--font-mono);
+}
+
+.detail-value.highlight {
+  color: var(--win-active);
+  font-weight: 600;
+}
+
+/* 刀具示意图 - 紧凑 */
+.tool-schematic {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  background: var(--win-bg);
+  border: 1px solid var(--win-border);
+  margin-top: 6px;
+}
+
+.tool-schematic svg {
+  width: 60px;
+  height: 60px;
+  color: var(--win-text-muted);
+}
+
+/* 详情操作按钮 */
+.detail-actions {
+  display: flex;
+  gap: 4px;
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid var(--win-border);
+}
+
+.detail-actions .btn {
+  flex: 1;
+  font-size: 10px;
+  padding: 4px 8px;
+}
+
+/* 详情列表 */
+.detail-list {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.detail-list tr {
+  border-bottom: 1px solid var(--win-border-light);
+}
+
+.detail-list tr:last-child {
+  border-bottom: none;
+}
+
+.detail-list td {
+  padding: 4px 6px;
+  font-size: var(--font-xs);
+}
+
+.detail-list td:first-child {
+  color: var(--win-text-muted);
+  width: 80px;
+}
+
+.detail-list td:last-child {
+  color: var(--win-text);
+  font-family: var(--font-mono);
+}
+
+/* 面板折叠动画 */
+.panel-left,
+.panel-right {
+  transition: width 0.2s ease;
+}
+
+.panel-right.collapsed .panel-header h3,
+.panel-right.collapsed .panel-content {
+  display: none;
+}
+
+.panel-right.collapsed .panel-header {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  padding: 8px 4px;
+  justify-content: flex-start;
+}
+
+.panel-right.collapsed .panel-header h3 {
+  display: block;
+  font-size: 10px;
+}

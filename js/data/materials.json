@@ -1,0 +1,154 @@
+{
+  "version": "2.0",
+  "lastUpdated": "2026-05-03",
+  "materials": {
+    "45钢": {
+      "name": "45钢",
+      "category": "碳素结构钢",
+      " hardness": "HRC28-32",
+      "tensileStrength": "600 MPa",
+      "cuttingDifficulty": 2,
+      "characteristics": "综合力学性能良好，切削性能较好",
+      "cuttingSpeed": {
+        "highSpeed钢": 120,
+        "硬质合金": 120-180,
+        "涂层硬质合金": 150-250
+      },
+      "recommendedCoating": "TiAlN",
+      "coolant": "水溶性切削液"
+    },
+    "铝合金": {
+      "name": "铝合金",
+      "category": "有色金属",
+      "subTypes": ["6061", "7075", "5052", "ADC12"],
+      "hardness": "HB30-150",
+      "tensileStrength": "90-570 MPa",
+      "cuttingDifficulty": 1,
+      "characteristics": "质软易切，粘刀，排屑难",
+      "cuttingSpeed": {
+        "highSpeed钢": 200-400,
+        "硬质合金": 300-800,
+        "PCD": 500-1500
+      },
+      "recommendedCoating": "金刚石涂层",
+      "coolant": "干切或微量润滑"
+    },
+    "不锈钢": {
+      "name": "不锈钢",
+      "category": "合金钢",
+      "subTypes": ["304", "316", "316L", "303", "420"],
+      "hardness": "HB150-250",
+      "tensileStrength": "500-2000 MPa",
+      "cuttingDifficulty": 4,
+      "characteristics": "易粘刀，硬化严重，散热差",
+      "cuttingSpeed": {
+        "highSpeed钢": 20-40,
+        "硬质合金": 80-150,
+        "涂层硬质合金": 100-200
+      },
+      "recommendedCoating": "TiAlN, AlCrN",
+      "coolant": "大量切削液"
+    },
+    "铸铁": {
+      "name": "铸铁",
+      "category": "黑色金属",
+      "subTypes": ["HT250", "HT300", "QT400", "QT600", "球墨铸铁"],
+      "hardness": "HB150-280",
+      "tensileStrength": "150-900 MPa",
+      "cuttingDifficulty": 2,
+      "characteristics": "脆性材料，切削力大，石墨润滑",
+      "cuttingSpeed": {
+        "highSpeed钢": 30-50,
+        "硬质合金": 100-200,
+        "涂层硬质合金": 150-300
+      },
+      "recommendedCoating": "TiN, TiCN",
+      "coolant": "可干切"
+    },
+    "铜": {
+      "name": "铜/黄铜",
+      "category": "有色金属",
+      "subTypes": ["纯铜", "H62黄铜", "H68黄铜", "铅黄铜"],
+      "hardness": "HB40-200",
+      "tensileStrength": "200-900 MPa",
+      "cuttingDifficulty": 1,
+      "characteristics": "导热性好，易粘刀，表面质量难保证",
+      "cuttingSpeed": {
+        "highSpeed钢": 100-200,
+        "硬质合金": 150-400,
+        "涂层硬质合金": 200-500
+      },
+      "recommendedCoating": "TiN",
+      "coolant": "干切或微量润滑"
+    },
+    "钛合金": {
+      "name": "钛合金",
+      "category": "有色金属",
+      "subTypes": ["TC4", "TC11", "TA15", "Ti6Al4V"],
+      "hardness": "HB280-360",
+      "tensileStrength": "900-1100 MPa",
+      "cuttingDifficulty": 5,
+      "characteristics": "强度高，弹性模量低，化学活性高",
+      "cuttingSpeed": {
+        "highSpeed钢": 10-20,
+        "硬质合金": 50-100,
+        "涂层硬质合金": 60-120
+      },
+      "recommendedCoating": "AlTiN, TiAlN",
+      "coolant": "大量切削液，充分冷却"
+    },
+    "模具钢": {
+      "name": "模具钢",
+      "category": "合金工具钢",
+      "subTypes": ["P20", "H13", "718", "NAK80", "SKD11", "SKH51"],
+      "hardness": "HRC30-62",
+      "tensileStrength": "800-2500 MPa",
+      "cuttingDifficulty": 3,
+      "characteristics": "硬度高，耐磨性好，切削力大",
+      "cuttingSpeed": {
+        "highSpeed钢": 15-30,
+        "硬质合金": 80-150,
+        "涂层硬质合金": 100-200
+      },
+      "recommendedCoating": "TiAlN, AlCrN",
+      "coolant": "水溶性切削液"
+    },
+    "高温合金": {
+      "name": "高温合金",
+      "category": "有色金属",
+      "subTypes": ["Inconel718", "Inconel625", "Waspaloy", "K403"],
+      "hardness": "HRC35-50",
+      "tensileStrength": "1000-1400 MPa",
+      "cuttingDifficulty": 5,
+      "characteristics": "高温强度高，切削温度高，加工硬化严重",
+      "cuttingSpeed": {
+        "硬质合金": 30-60,
+        "涂层硬质合金": 40-80
+      },
+      "recommendedCoating": "AlTiN, Diamond",
+      "coolant": "大量切削液，高压冷却"
+    }
+  },
+  "cuttingParameters": {
+    "铣削速度系数": {
+      "45钢": 1.0,
+      "铝合金": 2.5,
+      "不锈钢": 0.65,
+      "铸铁": 0.85,
+      "铜": 1.25,
+      "钛合金": 0.4,
+      "模具钢": 0.7,
+      "高温合金": 0.3
+    },
+    "进给系数": {
+      "45钢": 1.0,
+      "铝合金": 1.5,
+      "不锈钢": 0.7,
+      "铸铁": 1.0,
+      "铜": 1.2,
+      "钛合金": 0.5,
+      "模具钢": 0.8,
+      "高温合金": 0.4
+    }
+  }
+}

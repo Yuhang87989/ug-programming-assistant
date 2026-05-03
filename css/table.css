@@ -1,0 +1,533 @@
+/* ============================================
+   UG编程助手 - Windows表格样式
+   ListView风格数据展示
+   ============================================ */
+
+/* Windows ListView容器 */
+.data-grid-wrapper {
+  border: 1px solid var(--win-border);
+  background: var(--win-content);
+}
+
+/* 数据表格 - Windows ListView风格 */
+.data-grid {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--font-sm);
+  background: var(--win-content);
+}
+
+/* 表头 - Windows Header风格 */
+.data-grid thead {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.data-grid th {
+  padding: 4px 8px;
+  background: var(--win-header);
+  border: 1px solid;
+  border-color: var(--win-btn-highlight) var(--win-btn-shadow) var(--win-btn-shadow) var(--win-btn-highlight);
+  color: var(--win-text);
+  font-weight: 600;
+  text-align: left;
+  white-space: nowrap;
+  user-select: none;
+  cursor: default;
+}
+
+.data-grid th.sortable {
+  cursor: pointer;
+}
+
+.data-grid th.sortable:hover {
+  background: #d0d0d0;
+}
+
+.data-grid th .sort-icon {
+  display: inline-block;
+  margin-left: 4px;
+  font-size: 8px;
+  color: var(--win-text-muted);
+}
+
+.data-grid th.sorted .sort-icon {
+  color: var(--win-active);
+  font-weight: bold;
+}
+
+/* 表体 - Windows ListView行风格 */
+.data-grid tbody tr {
+  border-bottom: 1px solid var(--win-border-light);
+}
+
+.data-grid tbody tr:nth-child(odd) {
+  background: var(--win-content);
+}
+
+.data-grid tbody tr:nth-child(even) {
+  background: var(--win-row-even);
+}
+
+.data-grid tbody tr:hover {
+  background: var(--win-row-hover);
+}
+
+.data-grid tbody tr.selected {
+  background: var(--win-row-selected) !important;
+}
+
+.data-grid td {
+  padding: 3px 8px;
+  border-right: 1px solid var(--win-border-light);
+  vertical-align: middle;
+  color: var(--win-text);
+}
+
+/* 单元格样式 */
+.cell-id {
+  font-family: var(--font-mono);
+  font-size: var(--font-xs);
+  color: var(--win-text-muted);
+  width: 50px;
+}
+
+.cell-name {
+  font-weight: 500;
+  color: var(--win-text);
+}
+
+.cell-number {
+  font-family: var(--font-mono);
+  text-align: right;
+}
+
+/* 材料标签 - Windows Badge */
+.cell-material {
+  display: inline-block;
+  padding: 1px 6px;
+  font-size: var(--font-xs);
+  background: var(--win-header);
+  border: 1px solid var(--win-border);
+  color: var(--win-text);
+}
+
+.cell-tool-type {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 1px 6px;
+  font-size: var(--font-xs);
+  color: var(--win-active);
+}
+
+.cell-tool-type svg {
+  width: 12px;
+  height: 12px;
+}
+
+/* 操作列 */
+.cell-action {
+  text-align: center;
+  width: 70px;
+}
+
+.cell-action button {
+  padding: 2px 4px;
+  background: var(--win-btn-face);
+  border: 2px solid;
+  border-color: var(--win-btn-highlight) var(--win-btn-shadow) var(--win-btn-shadow) var(--win-btn-highlight);
+  cursor: pointer;
+  font-size: var(--font-xs);
+  color: var(--win-text);
+}
+
+.cell-action button:hover {
+  background: #e8e8e8;
+}
+
+.cell-action button:active {
+  border-color: var(--win-btn-shadow) var(--win-btn-highlight) var(--win-btn-highlight) var(--win-btn-shadow);
+}
+
+.cell-action button svg {
+  width: 12px;
+  height: 12px;
+}
+
+/* 行操作按钮 */
+.row-actions {
+  display: flex;
+  gap: 2px;
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+
+.data-grid tr:hover .row-actions {
+  opacity: 1;
+}
+
+/* 状态标签 - Windows Badge */
+.status-badge {
+  display: inline-block;
+  padding: 1px 6px;
+  font-size: var(--font-xs);
+  border: 1px solid;
+}
+
+.status-badge.active {
+  background: #e8f5e9;
+  border-color: var(--win-success);
+  color: var(--win-success);
+}
+
+.status-badge.warning {
+  background: #fff8e1;
+  border-color: var(--win-warning);
+  color: var(--win-warning);
+}
+
+.status-badge.danger {
+  background: #ffebee;
+  border-color: var(--win-danger);
+  color: var(--win-danger);
+}
+
+/* 复选框列 */
+.checkbox-cell {
+  width: 30px;
+  text-align: center;
+}
+
+.checkbox-cell input[type="checkbox"] {
+  width: 13px;
+  height: 13px;
+  cursor: pointer;
+}
+
+/* 排序图标 */
+.sort-icon {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-left: 4px;
+  vertical-align: middle;
+}
+
+.sort-icon.asc {
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-bottom: 6px solid currentColor;
+}
+
+.sort-icon.desc {
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 6px solid currentColor;
+}
+
+/* Windows分页控件 */
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 8px;
+  background: var(--win-header);
+  border-top: 1px solid var(--win-border);
+}
+
+.pagination-info {
+  font-size: var(--font-xs);
+  color: var(--win-text-secondary);
+}
+
+.pagination-controls {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.pagination-btn {
+  min-width: 24px;
+  height: 22px;
+  padding: 0 6px;
+  background: var(--win-btn-face);
+  border: 2px solid;
+  border-color: var(--win-btn-highlight) var(--win-btn-shadow) var(--win-btn-shadow) var(--win-btn-highlight);
+  color: var(--win-text);
+  font-size: var(--font-sm);
+  cursor: pointer;
+}
+
+.pagination-btn:hover:not(:disabled) {
+  background: #e8e8e8;
+}
+
+.pagination-btn:active:not(:disabled) {
+  border-color: var(--win-btn-shadow) var(--win-btn-highlight) var(--win-btn-highlight) var(--win-btn-shadow);
+}
+
+.pagination-btn:disabled {
+  color: var(--win-text-disabled);
+  cursor: not-allowed;
+}
+
+.pagination-btn.active {
+  background: var(--win-active);
+  border-color: var(--win-active);
+  color: white;
+}
+
+.pagination-btn svg {
+  width: 12px;
+  height: 12px;
+}
+
+/* 表格工具栏 */
+.table-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 8px;
+  background: var(--win-header);
+  border-bottom: 1px solid var(--win-border);
+}
+
+.table-toolbar-left,
+.table-toolbar-right {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* 表格搜索框 */
+.table-search {
+  display: flex;
+  align-items: center;
+  padding: 2px 6px;
+  background: #fff;
+  border: 2px solid;
+  border-color: #808080 #ffffff #ffffff #808080;
+}
+
+.table-search input {
+  background: transparent;
+  border: none;
+  color: var(--win-text);
+  font-size: var(--font-sm);
+  width: 160px;
+  outline: none;
+}
+
+.table-search input::placeholder {
+  color: var(--win-text-muted);
+}
+
+.table-search svg {
+  width: 14px;
+  height: 14px;
+  color: var(--win-text-muted);
+}
+
+/* 固定列 */
+.data-grid .sticky-left {
+  position: sticky;
+  left: 0;
+  z-index: 5;
+  background: inherit;
+}
+
+.data-grid .sticky-right {
+  position: sticky;
+  right: 0;
+  z-index: 5;
+  background: inherit;
+}
+
+/* 虚拟滚动 */
+.virtual-scroll-container {
+  flex: 1;
+  overflow-y: auto;
+  position: relative;
+}
+
+.virtual-scroll-content {
+  position: relative;
+}
+
+/* 行选择样式 */
+.data-grid tbody tr.selecting {
+  background: var(--win-selection);
+}
+
+/* 空表格状态 */
+.table-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  color: var(--win-text-muted);
+  font-size: var(--font-sm);
+}
+
+.table-empty svg {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 12px;
+  opacity: 0.4;
+}
+
+/* Windows列表视图选择框 */
+.listview {
+  border: 1px solid var(--win-border);
+  background: var(--win-content);
+}
+
+.listview-header {
+  display: flex;
+  background: var(--win-header);
+  border-bottom: 1px solid var(--win-border);
+  font-weight: 600;
+  font-size: var(--font-sm);
+}
+
+.listview-col {
+  padding: 3px 8px;
+  border-right: 1px solid var(--win-border);
+}
+
+.listview-col:last-child {
+  border-right: none;
+}
+
+.listview-row {
+  display: flex;
+  border-bottom: 1px solid var(--win-border-light);
+  cursor: pointer;
+}
+
+.listview-row:nth-child(even) {
+  background: var(--win-row-even);
+}
+
+.listview-row:hover {
+  background: var(--win-row-hover);
+}
+
+.listview-row.selected {
+  background: var(--win-row-selected);
+}
+
+.listview-cell {
+  padding: 3px 8px;
+  border-right: 1px solid var(--win-border-light);
+  font-size: var(--font-sm);
+  color: var(--win-text);
+}
+
+.listview-cell:last-child {
+  border-right: none;
+}
+
+/* Windows TreeListView (树形列表) */
+.treelistview {
+  border: 1px solid var(--win-border);
+  background: var(--win-content);
+}
+
+.treelistview-row {
+  display: flex;
+  border-bottom: 1px solid var(--win-border-light);
+  cursor: pointer;
+}
+
+.treelistview-row:nth-child(even) {
+  background: var(--win-row-even);
+}
+
+.treelistview-row:hover {
+  background: var(--win-row-hover);
+}
+
+.treelistview-row.selected {
+  background: var(--win-row-selected);
+}
+
+.treelistview-indent {
+  width: 18px;
+  flex-shrink: 0;
+}
+
+.treelistview-toggle {
+  width: 16px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.treelistview-toggle:hover {
+  background: rgba(0,0,0,0.1);
+}
+
+.treelistview-toggle.expanded::before {
+  content: '-';
+}
+
+.treelistview-toggle.collapsed::before {
+  content: '+';
+}
+
+.treelistview-icon {
+  width: 18px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.treelistview-icon svg {
+  width: 14px;
+  height: 14px;
+}
+
+.treelistview-cell {
+  flex: 1;
+  padding: 3px 4px;
+  font-size: var(--font-sm);
+  color: var(--win-text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* 列宽拖动 */
+.column-resize {
+  width: 4px;
+  cursor: col-resize;
+  background: transparent;
+}
+
+.column-resize:hover {
+  background: var(--win-active);
+}
+
+/* 列排序指示器 */
+.column-sort-asc::after {
+  content: '▲';
+  font-size: 8px;
+  margin-left: 4px;
+  color: var(--win-active);
+}
+
+.column-sort-desc::after {
+  content: '▼';
+  font-size: 8px;
+  margin-left: 4px;
+  color: var(--win-active);
+}

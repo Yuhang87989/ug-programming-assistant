@@ -1,0 +1,603 @@
+/* ============================================
+   UG编程助手 - Windows表单样式
+   输入框、选择器、复选框、表单布局
+   ============================================ */
+
+/* 表单容器 */
+.form-group {
+  margin-bottom: 10px;
+}
+
+.form-row {
+  display: flex;
+  gap: 12px;
+}
+
+.form-row .form-group {
+  flex: 1;
+}
+
+/* Windows表单标签 */
+.form-label {
+  display: block;
+  margin-bottom: 3px;
+  font-size: var(--font-sm);
+  font-weight: 500;
+  color: var(--win-text);
+}
+
+.form-label.required::after {
+  content: '*';
+  color: var(--win-danger);
+  margin-left: 2px;
+}
+
+/* Windows输入框 - 3D凹陷效果 */
+.form-input,
+.form-select,
+.form-textarea {
+  width: 100%;
+  padding: 3px 6px;
+  font-family: inherit;
+  font-size: var(--font-sm);
+  color: var(--win-text);
+  background: var(--win-input-bg);
+  border: 2px solid;
+  border-color: #808080 #ffffff #ffffff #808080;
+  outline: none;
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+  color: var(--win-text-muted);
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  border-color: var(--win-active);
+}
+
+.form-input:disabled,
+.form-select:disabled,
+.form-textarea:disabled {
+  background: var(--win-bg);
+  color: var(--win-text-disabled);
+}
+
+.form-input.error,
+.form-select.error,
+.form-textarea.error {
+  border-color: var(--win-danger);
+}
+
+/* 数字输入 */
+.form-input[type="number"] {
+  font-family: var(--font-mono);
+  text-align: right;
+}
+
+/* Windows下拉框 - 原生风格 */
+.form-select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath fill='%23333' d='M0 0l5 6 5-6z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 6px center;
+  padding-right: 24px;
+  cursor: pointer;
+}
+
+.form-select option {
+  background: var(--win-content);
+  color: var(--win-text);
+}
+
+/* 文本域 */
+.form-textarea {
+  min-height: 60px;
+  resize: vertical;
+}
+
+/* Windows复选框 */
+.form-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.form-checkbox input[type="checkbox"] {
+  width: 13px;
+  height: 13px;
+  border: 1px solid #333;
+  background: #fff;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.form-checkbox-label {
+  font-size: var(--font-sm);
+  color: var(--win-text);
+  user-select: none;
+}
+
+/* Windows单选按钮组 */
+.form-radio-group {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.form-radio {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 10px;
+  background: var(--win-content);
+  border: 1px solid var(--win-border);
+  cursor: pointer;
+  font-size: var(--font-sm);
+  color: var(--win-text);
+}
+
+.form-radio:hover {
+  background: var(--win-row-hover);
+}
+
+.form-radio.selected {
+  background: var(--win-selection);
+  border-color: var(--win-active);
+}
+
+.form-radio input[type="radio"] {
+  width: 12px;
+  height: 12px;
+  border: 1px solid #333;
+  cursor: pointer;
+}
+
+.form-radio-label {
+  font-size: var(--font-sm);
+  color: var(--win-text);
+}
+
+/* Windows开关 (Toggle) */
+.form-switch {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.form-switch-track {
+  width: 36px;
+  height: 18px;
+  background: #c0c0c0;
+  border: 1px solid #808080;
+  position: relative;
+}
+
+.form-switch-track::after {
+  content: '';
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  width: 14px;
+  height: 14px;
+  background: #fff;
+  border: 1px solid #808080;
+  transition: left 0.15s;
+}
+
+.form-switch input:checked + .form-switch-track {
+  background: var(--win-active);
+}
+
+.form-switch input:checked + .form-switch-track::after {
+  left: 19px;
+}
+
+.form-switch input {
+  display: none;
+}
+
+.form-switch-label {
+  font-size: var(--font-sm);
+  color: var(--win-text);
+}
+
+/* Windows输入组 */
+.input-group {
+  display: flex;
+}
+
+.input-group .form-input {
+  border-radius: 0;
+}
+
+.input-group .input-addon {
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+  background: var(--win-header);
+  border: 2px solid;
+  border-color: #808080 #ffffff #ffffff #808080;
+  border-left: none;
+  color: var(--win-text-muted);
+  font-size: var(--font-sm);
+}
+
+/* 帮助文本 */
+.form-help {
+  margin-top: 3px;
+  font-size: var(--font-xs);
+  color: var(--win-text-muted);
+}
+
+.form-error {
+  margin-top: 3px;
+  font-size: var(--font-xs);
+  color: var(--win-danger);
+}
+
+/* 条件表单 */
+.form-conditional {
+  padding: 8px;
+  background: var(--win-content);
+  border: 1px solid var(--win-border);
+  margin-top: 6px;
+}
+
+/* 步骤表单 - Windows向导风格 */
+.step-form {
+  counter-reset: step;
+}
+
+.step-form-item {
+  position: relative;
+  padding-left: 40px;
+  margin-bottom: 16px;
+}
+
+.step-form-item::before {
+  counter-increment: step;
+  content: counter(step);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--win-active);
+  color: white;
+  font-weight: 600;
+  font-size: var(--font-sm);
+  border: 2px solid var(--win-active);
+}
+
+.step-form-item.completed::before {
+  background: var(--win-success);
+  border-color: var(--win-success);
+}
+
+.step-form-title {
+  font-size: var(--font-base);
+  font-weight: 600;
+  color: var(--win-text);
+  margin-bottom: 8px;
+}
+
+/* Windows滑块 */
+.form-slider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.form-slider input[type="range"] {
+  flex: 1;
+  height: 20px;
+  background: var(--win-content);
+  border: 1px solid #808080;
+  -webkit-appearance: none;
+}
+
+.form-slider input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 16px;
+  height: 20px;
+  background: var(--win-btn-face);
+  border: 2px solid;
+  border-color: var(--win-btn-highlight) var(--win-btn-shadow) var(--win-btn-shadow) var(--win-btn-highlight);
+  cursor: pointer;
+}
+
+.form-slider-value {
+  min-width: 50px;
+  text-align: right;
+  font-family: var(--font-mono);
+  font-size: var(--font-sm);
+  color: var(--win-text);
+}
+
+/* 颜色选择 */
+.form-color {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.form-color input[type="color"] {
+  width: 32px;
+  height: 24px;
+  padding: 0;
+  border: 2px solid;
+  border-color: #808080 #ffffff #ffffff #808080;
+  cursor: pointer;
+  background: #fff;
+}
+
+.form-color input[type="color"]::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.form-color input[type="color"]::-webkit-color-swatch {
+  border: none;
+}
+
+/* 搜索下拉 */
+.search-dropdown {
+  position: relative;
+}
+
+.search-dropdown-list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: var(--win-content);
+  border: 2px solid;
+  border-color: var(--win-btn-highlight) var(--win-btn-shadow) var(--win-btn-shadow) var(--win-btn-highlight);
+  box-shadow: 2px 2px 0 rgba(0,0,0,0.2);
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 100;
+  display: none;
+}
+
+.search-dropdown-list.show {
+  display: block;
+}
+
+.search-dropdown-item {
+  padding: 4px 8px;
+  cursor: pointer;
+  font-size: var(--font-sm);
+}
+
+.search-dropdown-item:hover,
+.search-dropdown-item.selected {
+  background: var(--win-selection);
+}
+
+/* Windows表单按钮组 */
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  padding-top: 12px;
+  margin-top: 12px;
+  border-top: 1px solid var(--win-border);
+}
+
+/* Windows GroupBox表单分组 */
+.form-groupbox {
+  border: 1px solid var(--win-border);
+  padding: 12px;
+  margin: 12px 0;
+  position: relative;
+  background: var(--win-content);
+}
+
+.form-groupbox-title {
+  position: absolute;
+  top: -9px;
+  left: 10px;
+  background: var(--win-content);
+  padding: 0 6px;
+  font-size: var(--font-sm);
+  font-weight: 600;
+  color: var(--win-text);
+}
+
+/* 内联表单 */
+.form-inline {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.form-inline .form-label {
+  margin-bottom: 0;
+  white-space: nowrap;
+}
+
+.form-inline .form-input,
+.form-inline .form-select {
+  width: auto;
+}
+
+/* 表单验证状态 */
+.form-input.valid,
+.form-select.valid {
+  border-color: var(--win-success);
+}
+
+.form-input.invalid,
+.form-select.invalid {
+  border-color: var(--win-danger);
+}
+
+/* Windows进度条在表单中 */
+.form-progress {
+  margin-top: 8px;
+}
+
+.form-progress-bar {
+  height: 16px;
+  background: #fff;
+  border: 1px solid #808080;
+}
+
+.form-progress-fill {
+  height: 100%;
+  background: var(--win-active);
+  transition: width 0.2s;
+}
+
+.form-progress-text {
+  font-size: var(--font-xs);
+  color: var(--win-text-muted);
+  margin-top: 4px;
+  text-align: center;
+}
+
+/* 表格表单 */
+.sheet-form {
+  background: var(--win-content);
+  border: 1px solid var(--win-border);
+  padding: 8px;
+}
+
+.sheet-form-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.sheet-form-row:last-child {
+  margin-bottom: 0;
+}
+
+/* Windows对话框按钮 */
+.dialog-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 12px;
+  background: var(--win-bg);
+  border-top: 1px solid var(--win-border);
+}
+
+/* Windows OK/Cancel按钮组 */
+.okcancel-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 80px;
+}
+
+.okcancel-buttons .btn {
+  width: 100%;
+}
+
+/* Windows高级选项折叠 */
+.advanced-options {
+  margin-top: 12px;
+}
+
+.advanced-toggle {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 0;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: var(--font-sm);
+  color: var(--win-active);
+}
+
+.advanced-toggle:hover {
+  text-decoration: underline;
+}
+
+.advanced-toggle::before {
+  content: '+';
+  font-weight: bold;
+}
+
+.advanced-toggle.expanded::before {
+  content: '-';
+}
+
+.advanced-content {
+  display: none;
+  padding: 8px;
+  background: var(--win-content);
+  border: 1px solid var(--win-border);
+  margin-top: 4px;
+}
+
+.advanced-content.show {
+  display: block;
+}
+
+/* Windows文件输入 */
+.file-input-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.file-input-wrapper .form-input {
+  flex: 1;
+}
+
+.file-input-wrapper .btn {
+  flex-shrink: 0;
+}
+
+/* Windows数字微调器 */
+.spinner {
+  display: flex;
+  align-items: center;
+}
+
+.spinner .form-input {
+  border-radius: 0;
+  text-align: right;
+}
+
+.spinner-buttons {
+  display: flex;
+  flex-direction: column;
+}
+
+.spinner-btn {
+  width: 18px;
+  height: 12px;
+  padding: 0;
+  background: var(--win-btn-face);
+  border: 1px solid var(--win-border);
+  cursor: pointer;
+  font-size: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.spinner-btn:hover {
+  background: #e8e8e8;
+}
+
+.spinner-btn.up {
+  border-bottom: none;
+}
+
+.spinner-btn.down {
+  border-top: none;
+}

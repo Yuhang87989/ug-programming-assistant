@@ -1,0 +1,756 @@
+/* ============================================
+   UG编程助手 - EDM电极拆解模块样式
+   Windows桌面软件对话框风格
+   ============================================ */
+
+/* 布局 - Windows对话框内分区 */
+.edm-layout {
+  display: flex;
+  height: 100%;
+  gap: 2px;
+}
+
+.edm-left-panel {
+  width: 200px;
+  min-width: 200px;
+  background: var(--win-content);
+  border: 1px solid var(--win-border);
+}
+
+.edm-main-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: var(--win-content);
+  border: 1px solid var(--win-border);
+}
+
+.edm-right-panel {
+  width: 260px;
+  min-width: 260px;
+  background: var(--win-content);
+  border: 1px solid var(--win-border);
+}
+
+/* 左侧功能树 - Windows TreeView */
+.edm-tree-container {
+  padding: 4px;
+}
+
+.edm-tree-section {
+  margin-bottom: 4px;
+}
+
+.edm-tree-header {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 6px;
+  cursor: pointer;
+  font-size: var(--font-sm);
+  color: var(--win-text);
+  background: var(--win-header);
+  border: 1px solid var(--win-border);
+}
+
+.edm-tree-header:hover {
+  background: #d8d8d8;
+}
+
+.edm-tree-header.active {
+  background: var(--win-selection);
+}
+
+.edm-tree-toggle {
+  width: 14px;
+  font-size: 10px;
+  font-weight: bold;
+  color: var(--win-text);
+}
+
+.edm-tree-header.active .edm-tree-toggle::before {
+  content: '-';
+}
+
+.edm-tree-header:not(.active) .edm-tree-toggle::before {
+  content: '+';
+}
+
+.edm-tree-children:not(.expanded) {
+  display: none;
+}
+
+.edm-tree-icon {
+  font-size: 12px;
+  width: 16px;
+  text-align: center;
+}
+
+.edm-tree-label {
+  font-size: var(--font-sm);
+  font-weight: 500;
+}
+
+.edm-tree-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 6px;
+  padding-left: 24px;
+  cursor: pointer;
+  font-size: var(--font-sm);
+  color: var(--win-text);
+}
+
+.edm-tree-item:hover {
+  background: var(--win-selection);
+}
+
+.edm-tree-item.selected {
+  background: var(--win-row-selected);
+  color: var(--win-active);
+  border-left: 2px solid var(--win-active);
+}
+
+.edm-tree-child-icon {
+  font-size: 11px;
+  width: 14px;
+  text-align: center;
+}
+
+/* 主面板头部 - Windows标题栏 */
+.edm-main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3px 6px;
+  border-bottom: 1px solid var(--win-border);
+  background: var(--win-header);
+}
+
+.edm-title-bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.edm-icon {
+  font-size: 16px;
+}
+
+.edm-title-bar h3 {
+  margin: 0;
+  font-size: var(--font-base);
+  font-weight: 600;
+  color: var(--win-text);
+}
+
+.edm-toolbar {
+  display: flex;
+  gap: 4px;
+}
+
+/* 主内容区 */
+.edm-main-content {
+  flex: 1;
+  padding: 8px;
+  overflow-y: auto;
+}
+
+/* 右侧详情面板 */
+.edm-detail-header {
+  padding: 4px 8px;
+  border-bottom: 1px solid var(--win-border);
+  background: var(--win-header);
+}
+
+.edm-detail-header h4 {
+  margin: 0;
+  font-size: var(--font-sm);
+  font-weight: 600;
+  color: var(--win-text);
+}
+
+.edm-detail-content {
+  padding: 8px;
+  overflow-y: auto;
+  height: calc(100% - 30px);
+}
+
+.edm-detail-section {
+  margin-bottom: 12px;
+}
+
+.edm-detail-section h5 {
+  margin: 0 0 6px 0;
+  font-size: var(--font-sm);
+  font-weight: 600;
+  color: var(--win-text);
+  padding-bottom: 3px;
+  border-bottom: 1px solid var(--win-border-light);
+}
+
+/* Windows按钮 */
+.edm-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 10px;
+  background: var(--win-btn-face);
+  border: 2px solid;
+  border-color: var(--win-btn-highlight) var(--win-btn-shadow) var(--win-btn-shadow) var(--win-btn-highlight);
+  color: var(--win-text);
+  font-size: var(--font-sm);
+  cursor: pointer;
+}
+
+.edm-btn:hover {
+  background: #e8e8e8;
+}
+
+.edm-btn:active {
+  border-color: var(--win-btn-shadow) var(--win-btn-highlight) var(--win-btn-highlight) var(--win-btn-shadow);
+}
+
+.edm-btn.primary {
+  background: var(--win-active);
+  border-color: var(--win-active);
+  color: white;
+}
+
+.edm-btn.primary:hover {
+  background: #006cbd;
+}
+
+.edm-btn.danger {
+  background: var(--win-danger);
+  border-color: var(--win-danger);
+  color: white;
+}
+
+.edm-btn.danger:hover {
+  background: #c52b2b;
+}
+
+.edm-btn.small {
+  padding: 2px 6px;
+  font-size: var(--font-xs);
+}
+
+.edm-btn.full-width {
+  width: 100%;
+  justify-content: center;
+}
+
+.edm-btn-icon {
+  width: 24px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--win-btn-face);
+  border: 2px solid;
+  border-color: var(--win-btn-highlight) var(--win-btn-shadow) var(--win-btn-shadow) var(--win-btn-highlight);
+  cursor: pointer;
+  color: var(--win-text);
+  font-size: 11px;
+}
+
+.edm-btn-icon:hover {
+  background: #e8e8e8;
+}
+
+.edm-btn-icon.small {
+  width: 20px;
+  height: 18px;
+  font-size: 10px;
+}
+
+.edm-btn-icon.danger:hover {
+  background: #fce8e8;
+}
+
+.edm-btn-quick {
+  display: block;
+  width: 100%;
+  padding: 3px 6px;
+  margin-bottom: 3px;
+  background: var(--win-btn-face);
+  border: 1px solid var(--win-border);
+  color: var(--win-text-secondary);
+  font-size: var(--font-xs);
+  cursor: pointer;
+  text-align: left;
+}
+
+.edm-btn-quick:hover {
+  background: var(--win-selection);
+  color: var(--win-active);
+}
+
+/* 表单元素 - Windows凹陷风格 */
+.edm-input, .edm-select, .edm-textarea {
+  width: 100%;
+  padding: 3px 6px;
+  background: var(--win-input-bg);
+  border: 2px solid;
+  border-color: #808080 #ffffff #ffffff #808080;
+  color: var(--win-text);
+  font-size: var(--font-sm);
+}
+
+.edm-input:focus, .edm-select:focus, .edm-textarea:focus {
+  outline: none;
+  border-color: var(--win-active);
+}
+
+.edm-input.inline {
+  padding: 2px 4px;
+}
+
+.edm-input.small, .edm-select.small {
+  padding: 2px 4px;
+  font-size: var(--font-xs);
+}
+
+.edm-textarea {
+  resize: vertical;
+  min-height: 50px;
+}
+
+.edm-textarea.small {
+  min-height: 30px;
+}
+
+.edm-form-group {
+  margin-bottom: 8px;
+}
+
+.edm-form-group label {
+  display: block;
+  margin-bottom: 3px;
+  font-size: var(--font-xs);
+  color: var(--win-text);
+  font-weight: 500;
+}
+
+/* 单选/复选框 */
+.edm-radio-group, .edm-checkbox-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.edm-radio-group.vertical, .edm-checkbox-group.vertical {
+  flex-direction: column;
+  gap: 4px;
+}
+
+.edm-radio, .edm-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  font-size: var(--font-sm);
+  color: var(--win-text);
+}
+
+.edm-radio input, .edm-checkbox input {
+  width: 13px;
+  height: 13px;
+}
+
+/* Windows卡片 */
+.edm-card {
+  background: var(--win-content);
+  border: 1px solid var(--win-border);
+  margin-bottom: 8px;
+}
+
+.edm-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3px 6px;
+  background: var(--win-header);
+  border-bottom: 1px solid var(--win-border);
+}
+
+.edm-card-header h4 {
+  margin: 0;
+  font-size: var(--font-sm);
+  font-weight: 600;
+  color: var(--win-text);
+}
+
+.edm-card-body {
+  padding: 8px;
+}
+
+/* 状态标签 - Windows Badge */
+.edm-status {
+  display: inline-block;
+  padding: 1px 6px;
+  font-size: var(--font-xs);
+  background: var(--win-header);
+  border: 1px solid var(--win-border);
+  color: var(--win-text);
+}
+
+.edm-status.active {
+  background: #e8f5e9;
+  border-color: var(--win-success);
+  color: var(--win-success);
+}
+
+.edm-status.pending {
+  background: #fff8e1;
+  border-color: var(--win-warning);
+  color: var(--win-warning);
+}
+
+/* 材料标签 */
+.edm-material-tag {
+  display: inline-block;
+  padding: 1px 6px;
+  font-size: var(--font-xs);
+  color: white;
+}
+
+.edm-material-tag.copper {
+  background: #b35900;
+}
+
+.edm-material-tag.graphite {
+  background: #4a4a6a;
+}
+
+/* 拆电极工作台 */
+.edm-workbench {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.edm-workbench-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 8px;
+}
+
+.edm-material-selector {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.edm-material-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 8px;
+  background: var(--win-content);
+  border: 2px solid var(--win-border);
+  cursor: pointer;
+}
+
+.edm-material-option:hover {
+  background: var(--win-selection);
+}
+
+.edm-material-option.selected {
+  border-color: var(--win-active);
+  background: var(--win-selection);
+}
+
+.edm-material-preview {
+  width: 32px;
+  height: 32px;
+  background: var(--win-header);
+  border: 1px solid var(--win-border);
+}
+
+.edm-material-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.edm-material-name {
+  font-weight: 500;
+  color: var(--win-text);
+  font-size: var(--font-sm);
+}
+
+.edm-material-desc {
+  font-size: var(--font-xs);
+  color: var(--win-text-muted);
+}
+
+.edm-preview-area {
+  background: var(--win-content);
+  border: 1px solid var(--win-border);
+}
+
+.edm-preview-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3px 6px;
+  background: var(--win-header);
+  border-bottom: 1px solid var(--win-border);
+  font-weight: 500;
+  font-size: var(--font-sm);
+}
+
+.edm-preview-controls {
+  display: flex;
+  gap: 2px;
+}
+
+/* EDM参数表格 */
+.edm-param-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--font-sm);
+}
+
+.edm-param-table th {
+  padding: 3px 6px;
+  background: var(--win-header);
+  border: 1px solid var(--win-border);
+  text-align: left;
+  font-weight: 600;
+}
+
+.edm-param-table td {
+  padding: 3px 6px;
+  border: 1px solid var(--win-border-light);
+}
+
+.edm-param-table tr:nth-child(even) {
+  background: var(--win-row-even);
+}
+
+/* EDM工艺参数 */
+.edm-process-params {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+
+.edm-process-param {
+  display: flex;
+  flex-direction: column;
+  padding: 6px;
+  background: var(--win-content);
+  border: 1px solid var(--win-border);
+}
+
+.edm-process-param label {
+  font-size: var(--font-xs);
+  color: var(--win-text-muted);
+  margin-bottom: 3px;
+}
+
+.edm-process-param .value {
+  font-size: var(--font-base);
+  font-weight: 600;
+  font-family: var(--font-mono);
+  color: var(--win-text);
+}
+
+/* EDM放电策略 */
+.edm-spark-strategy {
+  border: 1px solid var(--win-border);
+  background: var(--win-content);
+  margin-bottom: 8px;
+}
+
+.edm-spark-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 8px;
+  background: var(--win-header);
+  border-bottom: 1px solid var(--win-border);
+}
+
+.edm-spark-icon {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--win-warning);
+  color: white;
+  font-size: 10px;
+  font-weight: bold;
+}
+
+.edm-spark-title {
+  font-weight: 600;
+  font-size: var(--font-sm);
+}
+
+.edm-spark-body {
+  padding: 8px;
+}
+
+.edm-spark-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 3px 0;
+  border-bottom: 1px solid var(--win-border-light);
+}
+
+.edm-spark-row:last-child {
+  border-bottom: none;
+}
+
+.edm-spark-label {
+  font-size: var(--font-xs);
+  color: var(--win-text-muted);
+}
+
+.edm-spark-value {
+  font-family: var(--font-mono);
+  font-size: var(--font-sm);
+  color: var(--win-text);
+}
+
+/* EDM图纸标注 */
+.edm-drawing-area {
+  background: var(--win-content);
+  border: 1px solid var(--win-border);
+  position: relative;
+}
+
+.edm-drawing-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3px 6px;
+  background: var(--win-header);
+  border-bottom: 1px solid var(--win-border);
+  font-size: var(--font-xs);
+}
+
+.edm-drawing-tools {
+  display: flex;
+  gap: 2px;
+}
+
+.edm-drawing-canvas {
+  height: 200px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--win-text-muted);
+}
+
+/* EDM加工代码预览 */
+.edm-code-preview {
+  background: var(--win-content);
+  border: 1px solid var(--win-border);
+  font-family: var(--font-mono);
+  font-size: var(--font-xs);
+}
+
+.edm-code-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3px 6px;
+  background: var(--win-header);
+  border-bottom: 1px solid var(--win-border);
+}
+
+.edm-code-body {
+  padding: 8px;
+  max-height: 200px;
+  overflow-y: auto;
+  white-space: pre;
+  color: var(--win-text);
+  line-height: 1.4;
+}
+
+/* EDM统计信息 */
+.edm-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+
+.edm-stat-item {
+  padding: 8px;
+  background: var(--win-content);
+  border: 1px solid var(--win-border);
+  text-align: center;
+}
+
+.edm-stat-value {
+  font-size: var(--font-lg);
+  font-weight: 600;
+  font-family: var(--font-mono);
+  color: var(--win-active);
+}
+
+.edm-stat-label {
+  font-size: var(--font-xs);
+  color: var(--win-text-muted);
+  margin-top: 4px;
+}
+
+/* EDM电极清单 */
+.edm-electrode-list {
+  border: 1px solid var(--win-border);
+  background: var(--win-content);
+}
+
+.edm-electrode-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 8px;
+  border-bottom: 1px solid var(--win-border-light);
+  cursor: pointer;
+}
+
+.edm-electrode-item:last-child {
+  border-bottom: none;
+}
+
+.edm-electrode-item:hover {
+  background: var(--win-row-hover);
+}
+
+.edm-electrode-item.selected {
+  background: var(--win-row-selected);
+}
+
+.edm-electrode-icon {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--win-header);
+  border: 1px solid var(--win-border);
+  font-size: 12px;
+}
+
+.edm-electrode-info {
+  flex: 1;
+}
+
+.edm-electrode-name {
+  font-weight: 500;
+  font-size: var(--font-sm);
+  color: var(--win-text);
+}
+
+.edm-electrode-meta {
+  font-size: var(--font-xs);
+  color: var(--win-text-muted);
+}

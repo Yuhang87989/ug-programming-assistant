@@ -1,0 +1,24 @@
+{
+  "name": "UG编程助手",
+  "short_name": "UG助手",
+  "description": "UG NX编程辅助工具 - 刀具参数库、加工模板、智能推荐",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#3B3B4B",
+  "theme_color": "#3B3B4B",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'><rect fill='%232B2B2B' width='192' height='192' rx='24'/><text y='115' x='96' text-anchor='middle' font-size='100' font-weight='bold' fill='%234FC3F7'>UG</text></svg>",
+      "sizes": "192x192",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><rect fill='%232B2B2B' width='512' height='512' rx='64'/><text y='300' x='256' text-anchor='middle' font-size='260' font-weight='bold' fill='%234FC3F7'>UG</text></svg>",
+      "sizes": "512x512",
+      "type": "image/svg+xml"
+    }
+  ],
+  "categories": ["productivity", "utilities"],
+  "lang": "zh-CN"
+}
